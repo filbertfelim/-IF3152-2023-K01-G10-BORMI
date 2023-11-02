@@ -40,18 +40,23 @@ model Product {
 model CartItem {
   id        Int     @id @default(autoincrement())
   product   Product @relation(fields: [productId], references: [id])
-  productId Int
-  quantity  Int
+  productId Int // data dummy
+  quantity  Int // data dummy
   user      User    @relation(fields: [userId], references: [id])
-  userId    Int
+  userId    Int // data dummy
+  isPurchased Boolean @default(false) // data dummy ( buat ada yang false ada yang true )
   transaction   Transaction? @relation(fields: [transactionId], references: [id])
-  transactionId Int
+  transactionId Int // data dummy , kalau isPurchased true, harus ada isinya
 }
 
 model Transaction {
   id   Int      @id @default(autoincrement())
+  createdAt  DateTime  @default(now()) @db.Timestamp()
+  reviewedAt DateTime? @db.Timestamp()
   user      User    @relation(fields: [userId], references: [id])
-  userId    Int
-  date DateTime @db.Date
+  userId    Int  // data dummy
+  date DateTime @db.Date  // data dummy
   CartItem CartItem[]
+
+  @@index([createdAt(sort: Desc)])
 }
