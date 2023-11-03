@@ -46,7 +46,7 @@ model CartItem {
   userId    Int // data dummy
   isPurchased Boolean @default(false) // data dummy ( buat ada yang false ada yang true )
   transaction   Transaction? @relation(fields: [transactionId], references: [id])
-  transactionId Int // data dummy , kalau isPurchased true, harus ada isinya
+  transactionId Int? // data dummy , kalau isPurchased true, harus ada isinya
 }
 
 model Transaction {
