@@ -1,0 +1,443 @@
+[
+    {
+        "productId": 1,
+        "quantity": 10,
+        "userId": 2,
+        "isPurchased": true,
+        "transactionId": 1 
+    },
+    {
+        "productId": 1,
+        "quantity": 8,
+        "userId": 4,
+        "isPurchased": true,
+        "transactionId": 11
+    },
+    {
+        "productId" : 1,
+        "quantity" : 4,
+        "userId" : 5
+    },
+    {
+        "productId" : 1,
+        "quantity" : 2,
+        "userId" : 2
+    },
+    {
+        "productId": 2,
+        "quantity": 2,
+        "userId": 3,
+        "isPurchased": true,
+        "transactionId": 6
+    },
+    {
+        "productId": 4,
+        "quantity": 1,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 16
+    },
+    {
+        "productId": 5,
+        "quantity": 3,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 21
+    },
+    {
+        "productId" : 5,
+        "quantity" : 4,
+        "userId" : 5
+    },
+    {
+        "productId": 6,
+        "quantity": 1,
+        "userId": 2,
+        "isPurchased": true,
+        "transactionId": 2
+    },
+    {
+        "productId" : 6,
+        "quantity" : 2,
+        "userId" : 5
+    },
+    {
+        "productId": 7,
+        "quantity": 2,
+        "userId": 3,
+        "isPurchased": true,
+        "transactionId": 7
+    },
+    {
+        "productId" : 7,
+        "quantity" : 1,
+        "userId" : 2
+    },
+    {
+        "productId": 8,
+        "quantity": 2,
+        "userId": 4,
+        "isPurchased": true,
+        "transactionId": 12
+    },
+    {
+        "productId": 9,
+        "quantity": 4,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 17
+    },
+    {
+        "productId" : 9,
+        "quantity" : 3,
+        "userId" : 3
+    },
+    {
+        "productId": 11,
+        "quantity": 2,
+        "userId": 2,
+        "isPurchased": true,
+        "transactionId": 3
+    },
+    {
+        "productId": 12,
+        "quantity": 1,
+        "userId": 3,
+        "isPurchased": true,
+        "transactionId": 8
+    },
+    {
+        "productId": 13,
+        "quantity": 3,
+        "userId": 4,
+        "isPurchased": true,
+        "transactionId": 13
+    },
+    {
+        "productId" : 13,
+        "quantity" : 2,
+        "userId" : 2
+    },
+    {
+        "productId": 14,
+        "quantity": 3,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 18
+    },
+    {
+        "productId" : 14,
+        "quantity" : 2,
+        "userId" : 3
+    },
+    {
+        "productId": 15,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 22
+    },
+    {
+        "productId": 16,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 22
+    },
+    {
+        "productId": 17,
+        "quantity": 1,
+        "userId": 3,
+        "isPurchased": true,
+        "transactionId": 8
+    },
+    {
+        "productId": 18,
+        "quantity": 5,
+        "userId": 2,
+        "isPurchased": true,
+        "transactionId": 1
+    },
+    {
+        "productId" : 18,
+        "quantity" : 4,
+        "userId" : 3
+    },
+    {
+        "productId" : 18,
+        "quantity" : 2,
+        "userId" : 5
+    },
+    {
+        "productId": 19,
+        "quantity": 5,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 17
+    },
+    {
+        "productId" : 19,
+        "quantity" : 1,
+        "userId" : 2
+    },{
+        "productId" : 19,
+        "quantity" : 1,
+        "userId" : 2
+    },
+    {
+        "productId": 20,
+        "quantity": 2,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 18
+    },
+    {
+        "productId": 21,
+        "quantity": 1,
+        "userId": 4,
+        "isPurchased": true,
+        "transactionId": 12
+    },
+    {
+        "productId" : 21,
+        "quantity" : 1,
+        "userId" : 3
+    },
+    {
+        "productId": 22,
+        "quantity": 1,
+        "userId": 2,
+        "isPurchased": true,
+        "transactionId": 4
+    },
+    {
+        "productId": 23,
+        "quantity": 1,
+        "userId": 3,
+        "isPurchased": true,
+        "transactionId": 9
+    },
+    {
+        "productId" : 23,
+        "quantity" : 1,
+        "userId" : 6
+    },
+    {
+        "productId": 24,
+        "quantity": 2,
+        "userId": 4,
+        "isPurchased": true,
+        "transactionId": 14
+    },
+    {
+        "productId": 25,
+        "quantity": 1,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 19
+    },
+    {
+        "productId" : 25,
+        "quantity" : 1,
+        "userId" : 6
+    },
+    {
+        "productId": 26,
+        "quantity": 2,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 23
+    },
+    {
+        "productId": 27,
+        "quantity": 5,
+        "userId": 2,
+        "isPurchased": true,
+        "transactionId": 5
+    },
+    {
+        "productId": 28,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 24
+    },
+    {
+        "productId": 29,
+        "quantity": 2,
+        "userId": 3,
+        "isPurchased": true,
+        "transactionId": 10
+    },
+    {
+        "productId" : 29,
+        "quantity" : 1,
+        "userId" : 6
+    },
+    {
+        "productId": 30,
+        "quantity": 1,
+        "userId": 4,
+        "isPurchased": true,
+        "transactionId": 15
+    },
+    {
+        "productId" : 31,
+        "quantity" : 1,
+        "userId" : 2
+    },
+    {
+        "productId": 32,
+        "quantity": 2,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 20
+    },
+    {
+        "productId": 33,
+        "quantity": 1,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 20
+    },
+    {
+        "productId": 34,
+        "quantity": 1,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 20
+    },
+    {
+        "productId": 35,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 25
+    },
+    {
+        "productId" : 35,
+        "quantity" : 2,
+        "userId" : 5
+    },
+    {
+        "productId": 36,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 25
+    },
+    {
+        "productId": 37,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 25
+    },
+    {
+        "productId": 38,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 25
+    },
+    {
+        "productId": 39,
+        "quantity": 3,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 20
+    },
+    {
+        "productId" : 39,
+        "quantity" : 2,
+        "userId" : 2
+    },
+    {
+        "productId": 41,
+        "quantity": 5,
+        "userId": 2,
+        "isPurchased": true,
+        "transactionId": 2
+    },
+    {
+        "productId" : 41,
+        "quantity" : 3,
+        "userId" : 3
+    },
+    {
+        "productId": 42,
+        "quantity": 3,
+        "userId": 4,
+        "isPurchased": true,
+        "transactionId": 11
+    },
+    {
+        "productId" : 43,
+        "quantity" : 2,
+        "userId" : 6
+    },
+    {
+        "productId": 44,
+        "quantity": 2,
+        "userId": 3,
+        "isPurchased": true,
+        "transactionId": 6
+    },
+    {
+        "productId" : 44,
+        "quantity" : 1,
+        "userId" : 3
+    },
+    {
+        "productId": 45,
+        "quantity": 4,
+        "userId": 3,
+        "isPurchased": true,
+        "transactionId": 6
+    },
+    {
+        "productId" : 45,
+        "quantity" : 1,
+        "userId" : 3
+    },
+    {
+        "productId": 46,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 22
+    },
+    {
+        "productId": 47,
+        "quantity": 2,
+        "userId": 5,
+        "isPurchased": true,
+        "transactionId": 16
+    },
+    {
+        "productId": 48,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 21
+    },
+    {
+        "productId": 49,
+        "quantity": 1,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 21
+    },
+    {
+        "productId" : 49,
+        "quantity" : 2,
+        "userId" : 5
+    },
+    {
+        "productId": 50,
+        "quantity": 5,
+        "userId": 6,
+        "isPurchased": true,
+        "transactionId": 21
+    }
+]
