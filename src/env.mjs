@@ -21,7 +21,14 @@ export const env = createEnv({
       // VERCEL_URL doesn't include `https` so it cant be validated as a URL
       process.env.VERCEL ? z.string() : z.string().url(),
     ),
+    SESSION_MAXAGE: z.preprocess(
+      // If SESSION_MAXAGE is not set, set it to 30 days
+      (str) => (str ? +str : 30 * 24 * 60 * 60),
+      z.number().int().positive(),
+    ),
     // Add ` on ID and SECRET if you want to make sure they're not empty
+    UPLOADTHING_SECRET: z.string(),
+    UPLOADTHING_APP_ID: z.string(),
   },
 
   /**
@@ -43,7 +50,11 @@ export const env = createEnv({
       process.env.DATABASE_URL_NON_POOLING ?? process.env.DATABASE_PRISMA_URL,
     NODE_ENV: process.env.NODE_ENV,
     // NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    // NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    SESSION_MAXAGE: process.env.SESSION_MAXAGE,
+    UPLOADTHING_SECRET: process.env.UPLOADTHING_SECRET,
+    UPLOADTHING_APP_ID: process.env.UPLOADTHING_APP_ID,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
@@ -54,5 +65,4 @@ export const env = createEnv({
    * Makes it so that empty strings are treated as undefined.
    * `SOME_VAR: z.string()` and `SOME_VAR=''` will throw an error.
    */
-  emptyStringAsUndefined: true,
 });
