@@ -151,7 +151,7 @@ export const productRouter = createTRPCRouter({
         });
 
         return {
-          message: "Product created successfully",
+          message: "Product edited successfully",
         };
       } catch (error) {
         throw new TRPCError({
