@@ -1,6 +1,10 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 
 export const transactionRouter = createTRPCRouter({
   getTransactions: protectedProcedure
@@ -51,11 +55,10 @@ export const transactionRouter = createTRPCRouter({
       };
     }),
 
-  addTransactions: protectedProcedure
+  addTransactions: publicProcedure
     .input(
       z.object({
         userId: z.number(),
-        date: z.date(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -65,7 +68,7 @@ export const transactionRouter = createTRPCRouter({
         transaction = await ctx.db.transaction.create({
           data: {
             userId: input.userId,
-            date: input.date,
+            date: new Date(),
           },
         });
       } catch (error) {

@@ -1,10 +1,14 @@
 import { CartItem } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 
 export const cartItemRouter = createTRPCRouter({
-  getCartItem: protectedProcedure
+  getCartItem: publicProcedure
     .input(
       z.object({
         userId: z.number(),
@@ -12,6 +16,19 @@ export const cartItemRouter = createTRPCRouter({
       }),
     )
     .query(async ({ ctx, input }) => {
+      const findFirst = await ctx.db.cartItem.findFirst({
+        where: {
+          userId: ctx.session?.user.id,
+        },
+      });
+
+      if (!findFirst) {
+        return {
+          data: [],
+          totalPage: undefined,
+          totalPrice: undefined,
+        };
+      }
       const data = await ctx.db.cartItem.findMany({
         where: {
           userId: input.userId,
@@ -32,7 +49,7 @@ export const cartItemRouter = createTRPCRouter({
       });
 
       let totalPrice = 0;
-      for (const cart of await data) {
+      for (const cart of data) {
         const price = await ctx.db.product.findUnique({
           where: {
             id: cart.productId,
@@ -56,7 +73,7 @@ export const cartItemRouter = createTRPCRouter({
       };
     }),
 
-  deleteCartItem: protectedProcedure
+  deleteCartItem: publicProcedure
     .input(
       z.object({
         cartId: z.number(),
@@ -81,7 +98,7 @@ export const cartItemRouter = createTRPCRouter({
       }
     }),
 
-  editCartItemQuantity: protectedProcedure
+  editCartItemQuantity: publicProcedure
     .input(
       z.object({
         cartId: z.number(),
