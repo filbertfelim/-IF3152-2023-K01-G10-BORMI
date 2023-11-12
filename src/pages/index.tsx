@@ -14,6 +14,7 @@ export default function Home() {
       </Head>
       <Navbar role="ADMIN" username="angie"></Navbar>
       <Button onClick={() => void router.push("/cart")}>Cart</Button>
+      <Button onClick={() => void router.push("/login")}>login</Button>
     </>
   );
 }
