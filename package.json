@@ -36,6 +36,7 @@
     "react-dom": "18.2.0",
     "react-number-format": "^5.3.1",
     "react-hook-form": "^7.48.2",
+    "react-number-format": "^5.3.1",
     "react-toast-notifications": "^2.5.1",
     "superjson": "^1.13.1",
     "uploadthing": "^5.7.4",

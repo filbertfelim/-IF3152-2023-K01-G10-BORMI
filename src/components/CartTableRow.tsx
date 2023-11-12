@@ -73,18 +73,26 @@ export default function CartTableRow({
       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
     >
       <TableCell>
-        <Typography
-          noWrap
-          sx={{
-            fontSize: "15px",
-            fontFamily: "Nunito",
-            fontWeight: 800,
-            color: "inherit",
-            justifyItems: "flex-end",
-          }}
-        >
-          {cartItem.product.name}
-        </Typography>
+        <div className="flex">
+          <img
+        src={cartItem.product.image}
+        alt={"Signature Image"}
+        className="w-[150px]"
+          />
+          <Typography
+            noWrap
+            className="flex items-center justify-center align-center ml-8"
+            sx={{
+              fontSize: "15px",
+              fontFamily: "Nunito",
+              fontWeight: 800,
+              color: "inherit",
+              justifyItems: "flex-end",
+            }}
+          >
+            {cartItem.product.name}
+          </Typography>
+        </div>
       </TableCell>
       <TableCell>
         <Typography

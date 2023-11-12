@@ -4,10 +4,17 @@ import { Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { api } from "~/utils/api";
 import CheckoutTable from "~/components/CheckoutTable";
+import Head from "next/head";
+import { withSession } from "~/server/auth/withSession";
+
+export const getServerSideProps = withSession({ type: "KASIR" });
 
 export default function cart() {
   return (
     <>
+      <Head>
+        <title>CART - BORMI</title>
+      </Head>
       <Navbar role="KASIR" username="angie"></Navbar>
       <Container maxWidth={false} className="mt-8 md:px-8 lg:px-16">
         <Typography

@@ -1,26 +1,30 @@
 import * as React from 'react';
-import { api } from "~/utils/api";
 import type {
     GetServerSidePropsContext,
     InferGetServerSidePropsType,
   } from "next";
   import { getCsrfToken } from "next-auth/react";
 import LoginCard from '~/components/LoginCard';
+import Head from 'next/head';
 
 export default function login({
     csrfToken,
   }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     return (
         <>
-            <LoginCard csrfToken={csrfToken}></LoginCard>
+        <Head>
+          <title>LOGIN - BORMI</title>
+        </Head>
+        <LoginCard csrfToken={csrfToken}></LoginCard>
         </>
     );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-    return {
-      props: {
-        csrfToken: await getCsrfToken(context),
-      },
-    };
-  }
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const csrfToken = await getCsrfToken(context);
+  return {
+    props: { csrfToken: csrfToken ? csrfToken : null }
+  };
+};
