@@ -1,9 +1,12 @@
+import { Button } from "@mui/material";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 import Navbar from "~/components/Navbar";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -20,6 +23,7 @@ export default function Home() {
         ></link>
       </Head>
       <Navbar role="ADMIN" username="angie"></Navbar>
+      <Button onClick={() => void router.push("/login")}>login</Button>
     </>
   );
 }
