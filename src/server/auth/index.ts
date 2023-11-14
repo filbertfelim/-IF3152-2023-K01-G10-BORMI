@@ -67,7 +67,6 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
   providers: [
     CredentialsProvider({
-      id: "username-login",
       name: "Credentials",
       // `credentials` is used to generate a form on the sign in page.
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
