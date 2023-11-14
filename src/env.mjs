@@ -10,7 +10,7 @@ export const env = createEnv({
   server: {
     DATABASE_PRISMA_URL: z.string().url(),
     DATABASE_URL_NON_POOLING: z.string().url().optional(),
-    NODE_ENV: z.enum(["development", "test", "production"]),
+    NODE_ENV: z.enum(["development", "preview", "production"]),
     NEXTAUTH_SECRET:
       process.env.NODE_ENV === "production"
         ? z.string().min(1)
