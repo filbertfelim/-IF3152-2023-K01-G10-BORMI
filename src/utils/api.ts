@@ -8,14 +8,23 @@ import { httpBatchLink, loggerLink } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
 import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server";
 import superjson from "superjson";
-
+import { env } from "~/env.mjs";
 import { type AppRouter } from "~/server/api/root";
 
-const getBaseUrl = () => {
-  if (typeof window !== "undefined") return ""; // browser should use relative url
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`; // SSR should use vercel url
-  return `http://localhost:${process.env.PORT ?? 3000}`; // dev SSR should use localhost
-};
+function getBaseUrl() {
+  if (typeof window !== "undefined")
+    // browser should use relative path
+    return "/api/trpc";
+
+  if (env.NEXT_PUBLIC_VERCEL_URL) {
+    if (env.NEXT_PUBLIC_VERCEL_URL.startsWith("http")) {
+      return `${env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`;
+    }
+    return `https://${env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`;
+  }
+  // assume localhost
+  return `http://localhost:${process.env.PORT ?? 3000}`;
+}
 
 /** A set of type-safe react-query hooks for your tRPC API. */
 export const api = createTRPCNext<AppRouter>({
@@ -40,7 +49,7 @@ export const api = createTRPCNext<AppRouter>({
             (opts.direction === "down" && opts.result instanceof Error),
         }),
         httpBatchLink({
-          url: `${getBaseUrl()}/api/trpc`,
+          url: getBaseUrl(),
         }),
       ],
     };

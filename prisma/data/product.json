@@ -4,399 +4,399 @@
     "category": "MAKANAN DAN MINUMAN",
     "stock": 100,
     "price": 3000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/028bbd0c-1d76-4412-8902-6f5bb7fe8d1d-z6fn14.jpg",
+    "imageKey": "028bbd0c-1d76-4412-8902-6f5bb7fe8d1d-z6fn14.jpg"
   },
   {
     "name": "Sania Beras 5kg",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 50,
     "price": 85000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/6d91ac54-45c3-4f8d-b4b4-db16ca4b4efc-li2wtg.jpg",
+    "imageKey": "6d91ac54-45c3-4f8d-b4b4-db16ca4b4efc-li2wtg.jpg"
   },
   {
     "name": "Jeruk Valencia 100g",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 200,
     "price": 5000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/7ecfacba-0ebc-4ed7-82f1-6a60f12f06ca-pa1p8x.JPG",
+    "imageKey": "7ecfacba-0ebc-4ed7-82f1-6a60f12f06ca-pa1p8x.JPG"
   },
   {
-    "name": "ABC Kecap Manis 600g",
+    "name": "ABC Kecap Manis 275ml",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 250,
     "price": 25000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/ccf257d3-a4c9-463d-abfe-10d34feffd1e-dbipsv.jpg",
+    "imageKey": "ccf257d3-a4c9-463d-abfe-10d34feffd1e-dbipsv.jpg"
   },
   {
     "name": "Buavita Jus Mangga 1L",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 150,
     "price": 35000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/33287c51-910c-4a05-a9be-501d1612b0ce-myql41.jpg",
+    "imageKey": "33287c51-910c-4a05-a9be-501d1612b0ce-myql41.jpg"
   },
   {
     "name": "Fanta 1.5L",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 300,
     "price": 15000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/1c54c0e9-d4e1-4842-b665-d3396668a319-s44ds7.5L.jpeg",
+    "imageKey": "1c54c0e9-d4e1-4842-b665-d3396668a319-s44ds7.5L.jpeg"
   },
   {
-    "name": "Golden Farm Kentang Goreng 1kg",
+    "name": "Golden Farm Kentang Goreng 200g",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 150,
     "price": 50000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/c81783e6-6f4a-403a-ae2c-5b7793976a85-cewtkv.png",
+    "imageKey": "c81783e6-6f4a-403a-ae2c-5b7793976a85-cewtkv.png"
   },
   {
     "name": "Segitiga Biru Tepung Terigu 1kg",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 250,
     "price": 10000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/bd7d8026-0165-4c9c-9a15-4e2c37a90fdf-hyrqp9.jpg",
+    "imageKey": "bd7d8026-0165-4c9c-9a15-4e2c37a90fdf-hyrqp9.jpg"
   },
   {
-    "name": "Kanzler Sosis Ayam Keju 500g",
+    "name": "Kanzler Sosis Ayam Keju 360g",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 250,
     "price": 55000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/863f46aa-02e0-4024-ba39-40388021908d-kswb7c.png",
+    "imageKey": "863f46aa-02e0-4024-ba39-40388021908d-kswb7c.png"
   },
   {
-    "name": "Roma Biskuit Kelapa 100g",
+    "name": "Roma Biskuit Kelapa 300g",
     "category": "MAKANAN DAN MINUMAN",
     "stock": 0,
     "price": 10000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/b2e719f9-3e68-4183-81ca-8da3e3e3242e-p4myp3.jpg",
+    "imageKey": "b2e719f9-3e68-4183-81ca-8da3e3e3242e-p4myp3.jpg"
   },
   {
     "name": "Nagoya Sapu Ijuk",
     "category": "PERALATAN RUMAH",
     "stock": 100,
     "price": 300000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/395b5ec3-dea7-48f7-b92a-aa7aad1c9cf6-6njk07.jpg",
+    "imageKey": "395b5ec3-dea7-48f7-b92a-aa7aad1c9cf6-6njk07.jpg"
   },
   {
     "name": "Proclean Alat Pel",
     "category": "PERALATAN RUMAH",
     "stock": 70,
     "price": 120000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/85c6a2bf-bc5b-46bf-a866-ad06d127c2f1-1fjzdy.jpg",
+    "imageKey": "85c6a2bf-bc5b-46bf-a866-ad06d127c2f1-1fjzdy.jpg"
   },
   {
     "name": "Bagus Spons Cuci Piring",
     "category": "PERALATAN RUMAH",
     "stock": 400,
     "price": 15000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/44f6c5e2-60da-498e-b6ce-6e919819db28-9exi7k.png",
+    "imageKey": "44f6c5e2-60da-498e-b6ce-6e919819db28-9exi7k.png"
   },
   {
     "name": "Maxim Teflon Anti Lengket",
     "category": "PERALATAN RUMAH",
     "stock": 360,
     "price": 110000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/d37f108e-5bea-41d8-a461-a5c3512e5041-xpuw7z.png",
+    "imageKey": "d37f108e-5bea-41d8-a461-a5c3512e5041-xpuw7z.png"
   },
   {
     "name": "Lion Star Ember",
     "category": "PERALATAN RUMAH",
     "stock": 500,
     "price": 50000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/0814e7b8-5db7-4c35-9ec7-a00ad398a3d5-kyu9z3.png",
+    "imageKey": "0814e7b8-5db7-4c35-9ec7-a00ad398a3d5-kyu9z3.png"
   },
   {
     "name": "Sapu Lidi Kasur",
     "category": "PERALATAN RUMAH",
     "stock": 100,
     "price": 20000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/94f7e08e-b684-4b64-90be-b8b6424b5a63-9b8l76.jpeg",
+    "imageKey": "94f7e08e-b684-4b64-90be-b8b6424b5a63-9b8l76.jpeg"
   },
   {
     "name": "Napolly Kursi Plastik",
     "category": "PERALATAN RUMAH",
     "stock": 200,
     "price": 100000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/96d4fdd5-8989-4100-a1c7-15b618605f12-ett7lf.png",
+    "imageKey": "96d4fdd5-8989-4100-a1c7-15b618605f12-ett7lf.png"
   },
   {
     "name": "Piring Makan Keramik",
     "category": "PERALATAN RUMAH",
     "stock": 450,
     "price": 50000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/12143764-e967-4b93-807b-603f17849360-f582mk.jpg",
+    "imageKey": "12143764-e967-4b93-807b-603f17849360-f582mk.jpg"
   },
   {
     "name": "Talenan Kayu",
     "category": "PERALATAN RUMAH",
     "stock": 300,
     "price": 100000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/157fee9c-7a1d-4c50-b76e-99a0d516c60d-fm7mph.jpg",
+    "imageKey": "157fee9c-7a1d-4c50-b76e-99a0d516c60d-fm7mph.jpg"
   },
   {
     "name": "Sutil Kayu",
     "category": "PERALATAN RUMAH",
     "stock": 0,
     "price": 10000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/bd6e7134-5f83-4248-8582-2f4e4c291d4d-701in3.jpg",
+    "imageKey": "bd6e7134-5f83-4248-8582-2f4e4c291d4d-701in3.jpg"
   },
   {
     "name": "Cosmos Blender",
     "category": "ELEKTRONIK",
     "stock": 100,
     "price": 350000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/526d8144-7df4-4088-b408-8b56e01ab0bf-uzrvex.jpg",
+    "imageKey": "526d8144-7df4-4088-b408-8b56e01ab0bf-uzrvex.jpg"
   },
   {
     "name": "Sharp Mesin Cuci",
     "category": "ELEKTRONIK",
     "stock": 30,
     "price": 1850000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/c20ca2d7-9d0d-46a7-a6bc-68a43f75b710-99jxbi.png",
+    "imageKey": "c20ca2d7-9d0d-46a7-a6bc-68a43f75b710-99jxbi.png"
   },
   {
-    "name": "LG Kulkas 1 Pintu",
+    "name": "Toshiba Kulkas 1 Pintu",
     "category": "ELEKTRONIK",
     "stock": 10,
     "price": 3000000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/c9e76e0d-d19c-4ad5-988e-37262dfaa277-8vmd4n.png",
+    "imageKey": "c9e76e0d-d19c-4ad5-988e-37262dfaa277-8vmd4n.png"
   },
   {
     "name": "Samsung TV",
     "category": "ELEKTRONIK",
     "stock": 30,
     "price": 5000000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/247cc252-848a-44f8-b25c-27e9117cdf8f-4dv4re.png",
+    "imageKey": "247cc252-848a-44f8-b25c-27e9117cdf8f-4dv4re.png"
   },
   {
     "name": "Hitachi Dispenser",
     "category": "ELEKTRONIK",
     "stock": 50,
     "price": 3500000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/4a65c644-6037-4e96-babe-0433f1476a35-rfbc32.jpg",
+    "imageKey": "4a65c644-6037-4e96-babe-0433f1476a35-rfbc32.jpg"
   },
   {
     "name": "Sony Pengeras Suara",
     "category": "ELEKTRONIK",
     "stock": 40,
     "price": 9000000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/c05d904a-91aa-49f6-a8fa-4b1a72c2c954-5hnums.png",
+    "imageKey": "c05d904a-91aa-49f6-a8fa-4b1a72c2c954-5hnums.png"
   },
   {
     "name": "Daikin Pendingin Ruangan",
     "category": "ELEKTRONIK",
     "stock": 80,
     "price": 6000000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/bbae0ce4-89e3-4168-aba4-d092b24bd3b4-b46xdw.png",
+    "imageKey": "bbae0ce4-89e3-4168-aba4-d092b24bd3b4-b46xdw.png"
   },
   {
     "name": "Apple Iphone 14",
     "category": "ELEKTRONIK",
     "stock": 120,
     "price": 16000000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/e7868cab-5be2-4548-9c6c-1971787d457d-ykw5iw.png",
+    "imageKey": "e7868cab-5be2-4548-9c6c-1971787d457d-ykw5iw.png"
   },
   {
     "name": "Panasonic Vacuum Cleaner",
     "category": "ELEKTRONIK",
     "stock": 140,
     "price": 1500000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/0e6cf474-6a29-4227-ba90-6d271ac2d32b-lmxnwj.png",
+    "imageKey": "0e6cf474-6a29-4227-ba90-6d271ac2d32b-lmxnwj.png"
   },
   {
     "name": "Asus Laptop Notebook Ryzen",
     "category": "ELEKTRONIK",
     "stock": 0,
     "price": 9000000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/15088add-ff94-4cee-8234-030f413254f2-jeuu25.png",
+    "imageKey": "15088add-ff94-4cee-8234-030f413254f2-jeuu25.png"
   },
   {
     "name": "Somethinc Setting Spray",
     "category": "KOSMETIK",
     "stock": 300,
     "price": 70000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/235c0141-62f4-4da6-a325-64f855c92311-nxk6nh.png",
+    "imageKey": "235c0141-62f4-4da6-a325-64f855c92311-nxk6nh.png"
   },
   {
     "name": "Skintific Pelembab Wajah",
     "category": "KOSMETIK",
     "stock": 500,
     "price": 200000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/c0fe12cb-f89d-4af7-8d51-3e182f91e6c8-g019tv.png",
+    "imageKey": "c0fe12cb-f89d-4af7-8d51-3e182f91e6c8-g019tv.png"
   },
   {
     "name": "Focallure Pensil Alis",
     "category": "KOSMETIK",
     "stock": 100,
     "price": 80000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/7f99aefa-8356-47bc-ae58-3c102c1c0733-z9ejs7.png",
+    "imageKey": "7f99aefa-8356-47bc-ae58-3c102c1c0733-z9ejs7.png"
   },
   {
     "name": "Hanasui Lip Cream",
     "category": "KOSMETIK",
     "stock": 200,
     "price": 40000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/5e3fd4e6-4ffe-44ff-a76a-f9472297a3fd-rnxik0.png",
+    "imageKey": "5e3fd4e6-4ffe-44ff-a76a-f9472297a3fd-rnxik0.png"
   },
   {
     "name": "Garnier Micellar Cleansing Water 400ml",
     "category": "KOSMETIK",
     "stock": 250,
     "price": 110000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/c20e5b58-1c97-4605-ae1c-b6ce4f445d69-ja4r4f.png",
+    "imageKey": "c20e5b58-1c97-4605-ae1c-b6ce4f445d69-ja4r4f.png"
   },
   {
     "name": "Selection Kapas Wajah",
     "category": "KOSMETIK",
     "stock": 420,
     "price": 10000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/2345d4d4-8da8-430b-b72c-fba69487e90a-bjd4ld.png",
+    "imageKey": "2345d4d4-8da8-430b-b72c-fba69487e90a-bjd4ld.png"
   },
   {
     "name": "Maybelline Maskara",
     "category": "KOSMETIK",
     "stock": 360,
     "price": 90000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/43672e68-d755-4126-8d90-dc3e7adfb456-fca4hw.png",
+    "imageKey": "43672e68-d755-4126-8d90-dc3e7adfb456-fca4hw.png"
   },
   {
     "name": "Wardah Liquid Concealer",
     "category": "KOSMETIK",
     "stock": 330,
     "price": 50000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/46fbdb52-2f16-490e-9809-ade5ccab4fdd-fe5siz.png",
+    "imageKey": "46fbdb52-2f16-490e-9809-ade5ccab4fdd-fe5siz.png"
   },
   {
     "name": "Azarine Sunscreen SPF45",
     "category": "KOSMETIK",
     "stock": 480,
     "price": 80000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/bb1f187f-7ac0-4f5f-b901-1c18a978f7ed-d1fa14.png",
+    "imageKey": "bb1f187f-7ac0-4f5f-b901-1c18a978f7ed-d1fa14.png"
   },
   {
     "name": "Bioaqua Sheet Mask",
     "category": "KOSMETIK",
     "stock": 0,
     "price": 15000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/5567c16c-de9d-4484-8c44-5309d2f53473-5oye9j.png",
+    "imageKey": "5567c16c-de9d-4484-8c44-5309d2f53473-5oye9j.png"
   },
   {
     "name": "Lifebuoy Sabun Mandi Cair 825ml",
     "category": "PERLENGKAPAN MANDI",
     "stock": 430,
     "price": 35000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/c2ceb4d6-6812-48e0-99b8-92e42fc0ab3d-ulj3wc.png",
+    "imageKey": "c2ceb4d6-6812-48e0-99b8-92e42fc0ab3d-ulj3wc.png"
   },
   {
     "name": "Dove Shampoo Perawatan Rambut Rontok 290ml",
     "category": "PERLENGKAPAN MANDI",
     "stock": 390,
     "price": 60000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/1b67002e-c9d0-4774-bf22-1311657bbe01-jussps.png",
+    "imageKey": "1b67002e-c9d0-4774-bf22-1311657bbe01-jussps.png"
   },
   {
     "name": "Miniso Handuk Mandi",
     "category": "PERLENGKAPAN MANDI",
     "stock": 260,
     "price": 55000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/a561be7e-9f9f-4943-9de9-05691a84ac3c-46n99t.png",
+    "imageKey": "a561be7e-9f9f-4943-9de9-05691a84ac3c-46n99t.png"
   },
   {
     "name": "Pepsodent Pasta Gigi",
     "category": "PERLENGKAPAN MANDI",
     "stock": 470,
     "price": 45000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/0dd7aa38-db75-42ea-a48c-9b8cf9db6f86-c2xk8n.png",
+    "imageKey": "0dd7aa38-db75-42ea-a48c-9b8cf9db6f86-c2xk8n.png"
   },
   {
     "name": "Formula Sikat Gigi",
     "category": "PERLENGKAPAN MANDI",
     "stock": 480,
     "price": 15000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/3fe634cb-83c2-4ccf-bc9c-84e28ece80f9-4v4ovq.png",
+    "imageKey": "3fe634cb-83c2-4ccf-bc9c-84e28ece80f9-4v4ovq.png"
   },
   {
     "name": "Sunxin Spons Mandi",
     "category": "PERLENGKAPAN MANDI",
     "stock": 270,
     "price": 6000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/f78e78b7-dea4-433b-a382-fc045ca350be-eejcah.png",
+    "imageKey": "f78e78b7-dea4-433b-a382-fc045ca350be-eejcah.png"
   },
   {
     "name": "Lofe Bath Bomb",
     "category": "PERLENGKAPAN MANDI",
     "stock": 300,
     "price": 20000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/40c9a860-10ab-423c-9691-36815611e426-54nbn5.png",
+    "imageKey": "40c9a860-10ab-423c-9691-36815611e426-54nbn5.png"
   },
   {
     "name": "Cetaphil Gentle Skin Cleanser 500ml",
     "category": "PERLENGKAPAN MANDI",
     "stock": 100,
     "price": 250000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/8b86dc71-e4ba-4646-9c13-791f2236377c-q18zvj.png",
+    "imageKey": "8b86dc71-e4ba-4646-9c13-791f2236377c-q18zvj.png"
   },
   {
     "name": "Pantene Kondisioner 150ml",
     "category": "PERLENGKAPAN MANDI",
     "stock": 250,
     "price": 30000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/39f6031e-b361-4e3f-91ab-7874c8c12b15-9deokf.png",
+    "imageKey": "39f6031e-b361-4e3f-91ab-7874c8c12b15-9deokf.png"
   },
   {
     "name": "Panache Shower Cap",
     "category": "PERLENGKAPAN MANDI",
     "stock": 0,
     "price": 20000,
-    "image": "aaaa",
-    "imageKey": "aaaa"
+    "image": "https://utfs.io/f/5bb3e420-bd89-44f0-a359-d7db8f8059cd-r2yjfk.png",
+    "imageKey": "5bb3e420-bd89-44f0-a359-d7db8f8059cd-r2yjfk.png"
   }
 ]

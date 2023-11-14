@@ -39,14 +39,12 @@ const LoginCard = ({
       },
     });
 
-    
-
     useEffect(() => {
       if (status === "authenticated" && session !== null) {
         if (session.user.role === "ADMIN") {
           void router.push("/dashboard-user");
         } else if (session.user.role === "KASIR") {
-          void router.push("/product-list");
+          void router.push("/cart");
         } else {
           void router.push("/dashboard-product");
         }
@@ -116,50 +114,50 @@ const LoginCard = ({
                       Hey, please enter your username and password
                     </Typography>
                     <form onSubmit={(e) => void handleSubmit(login)(e)}>
-                    <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-                    <TextField
-                      required
-                      type="username"
-                      placeholder="Username"
-                      label="Username"
-                      {...register("username", {
-                        required: "Username tidak boleh kosong",
-                      })}
-                      {...register("password", {
-                        required: "Password tidak boleh kosong",
-                      })}
-                      className='w-full mb-4'
-                      InputProps={{ sx: { borderRadius: 4,fontFamily: "Nunito",
-                      fontWeight:800,
-                      color: "inherit", } }}
-                    />
-                    <TextField
-                      required
-                      type="password"
-                      placeholder="Password"
-                      label="Password"
-                      className='w-full mb-4'
-                      InputProps={{ sx: { borderRadius: 4,fontFamily: "Nunito",
-                      fontWeight:800,
-                      color: "inherit", } }}
-                    />
-                    <Button
-                        type="submit"
-                        className="w-full rounded-3xl border-2 bg-[#FFC887] px-0 py-3 hover:bg-[#897054] disabled:bg-[#c3c3c3] my-8"
-                    >
-                        <Typography
-                            noWrap
-                            sx={{
-                              fontSize: "15px",
-                              fontFamily: "Nunito",
-                              fontWeight: 800,
-                              color: "black",
-                              justifyItems: "flex-end",
-                            }}
-                        >
-                            Log In
-                        </Typography>
-                    </Button>
+                      <input name="csrfToken" type="hidden" defaultValue={csrfToken!} />
+                      <TextField
+                        required
+                        type="username"
+                        placeholder="Username"
+                        label="Username"
+                        {...register("username", {
+                          required: "Username tidak boleh kosong",
+                        })}
+                        className='w-full mb-4'
+                        InputProps={{ sx: { borderRadius: 4,fontFamily: "Nunito",
+                        fontWeight:800,
+                        color: "inherit", } }}
+                      />
+                      <TextField
+                        required
+                        type="password"
+                        placeholder="Password"
+                        label="Password"
+                        className='w-full mb-4'
+                        {...register("password", {
+                          required: "Password tidak boleh kosong",
+                        })}
+                        InputProps={{ sx: { borderRadius: 4,fontFamily: "Nunito",
+                        fontWeight:800,
+                        color: "inherit", } }}
+                      />
+                      <Button
+                          type="submit"
+                          className="w-full rounded-3xl border-2 bg-[#FFC887] px-0 py-3 hover:bg-[#897054] disabled:bg-[#c3c3c3] my-8"
+                      >
+                          <Typography
+                              noWrap
+                              sx={{
+                                fontSize: "15px",
+                                fontFamily: "Nunito",
+                                fontWeight: 800,
+                                color: "black",
+                                justifyItems: "flex-end",
+                              }}
+                          >
+                              Log In
+                          </Typography>
+                      </Button>
                     </form>
                     </CardContent>
                 </Card>
