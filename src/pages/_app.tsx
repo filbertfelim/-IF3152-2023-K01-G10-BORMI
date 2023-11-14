@@ -1,11 +1,12 @@
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
-
+import { CacheProvider } from "@emotion/react";
 import { api } from "~/utils/api";
-
 import "~/styles/globals.css";
-import Head from "next/head";
+import createEmotionCache from "./createEmotionCache";
+
+const cache = createEmotionCache();
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -13,21 +14,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Megrim&display=swap"
-          rel="stylesheet"
-        ></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
-          rel="stylesheet"
-        ></link>
-      </Head>
+      <CacheProvider value={cache}>
         <SessionProvider session={session}>
           <Component {...pageProps} />
         </SessionProvider>
+      </CacheProvider>
     </>
   );
 };
