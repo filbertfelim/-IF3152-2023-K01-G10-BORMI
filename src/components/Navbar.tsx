@@ -16,7 +16,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import { UserRole } from "@prisma/client";
 
 interface Props {
-  role: UserRole;
+  role: UserRole | undefined;
   username: string;
 }
 
@@ -27,7 +27,6 @@ function Navbar({ role, username }: Props) {
   } else if (role === "KASIR") {
     pages = ["Daftar Produk", "Keranjang"];
   }
-
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
   );

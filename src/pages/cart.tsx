@@ -6,16 +6,19 @@ import { api } from "~/utils/api";
 import CheckoutTable from "~/components/CheckoutTable";
 import Head from "next/head";
 import { withSession } from "~/server/auth/withSession";
+import { useSession } from "next-auth/react";
 
 export const getServerSideProps = withSession({ type: "KASIR" });
 
 export default function cart() {
+  const { data, status } = useSession();
+  const userData = api.user.getUserbyId.useQuery({ id : data?.user.id as number})
   return (
     <>
       <Head>
         <title>CART - BORMI</title>
       </Head>
-      <Navbar role="KASIR" username="angie"></Navbar>
+      <Navbar role={data?.user.role} username={userData.data?.username as string}></Navbar>
       <Container maxWidth={false} className="mt-8 md:px-8 lg:px-16">
         <Typography
           className="mb-8 flex md:text-3xl lg:text-4xl"
