@@ -50,7 +50,7 @@ export const authOptions: NextAuthOptions = {
       return {
         ...session,
         user: {
-          name: session.user?.username,
+          name: session.user.username || null,
           id: token.id,
           role: token.role,
         },
