@@ -98,7 +98,7 @@ const LoginCard = ({
       <Typography
         variant="h4"
         noWrap
-        className="absolute right-12 top-4"
+        className="absolute right-8 top-4"
         sx={{
           fontFamily: "Megrim",
           fontWeight: 800,
