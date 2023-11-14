@@ -4,7 +4,7 @@ import { type AppType } from "next/app";
 import { CacheProvider } from "@emotion/react";
 import { api } from "~/utils/api";
 import "~/styles/globals.css";
-import createEmotionCache from "./createEmotionCache";
+import createEmotionCache from "../../createEmotionCache";
 
 const cache = createEmotionCache();
 
