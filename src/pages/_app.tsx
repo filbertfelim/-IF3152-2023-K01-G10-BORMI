@@ -6,7 +6,6 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import Head from "next/head";
-import { ToastProvider } from "react-toast-notifications";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -26,15 +25,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
           rel="stylesheet"
         ></link>
       </Head>
-      <ToastProvider
-        autoDismiss
-        autoDismissTimeout={2000}
-        placement="bottom-right"
-      >
         <SessionProvider session={session}>
           <Component {...pageProps} />
         </SessionProvider>
-      </ToastProvider>
     </>
   );
 };

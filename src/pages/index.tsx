@@ -2,8 +2,6 @@ import { useSession } from "next-auth/react";
 import { withSession } from "~/server/auth/withSession";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { getServerSession } from "next-auth";
-import { authOptions } from "~/server/auth";
 
 export const getServerSideProps = withSession({ type: "NOT_REQUIRED" });
 
