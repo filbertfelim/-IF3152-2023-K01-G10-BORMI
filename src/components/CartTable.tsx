@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { api } from "~/utils/api";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,24 +7,18 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import CartTableRow from "./CartTableRow";
-import { api } from "~/utils/api";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { TRPCClientError } from "@trpc/client";
-import Alert from "@mui/material/Alert";
-import CustomAlert from "./CustomAlert";
-import { useToasts } from "react-toast-notifications";
 
 interface Props {
   id: number;
 }
 
 export default function CartTable({ id }: Props) {
-  const { addToast } = useToasts();
   const [cursor, setCursor] = useState(1);
   const cartData = api.cartItem.getCartItem.useQuery({
     page: cursor,
@@ -39,12 +34,10 @@ export default function CartTable({ id }: Props) {
         quantity: quantity,
       })
       .then(async () => {
-        addToast("Edited Successfully", { appearance: "success" });
         cartData.refetch();
       })
       .catch((err: any) => {
         if (!(err instanceof TRPCClientError)) throw err;
-        addToast(err.message, { appearance: "error" });
       });
   };
   const deleteCartItem = (id: number) => {
@@ -53,12 +46,10 @@ export default function CartTable({ id }: Props) {
         cartId: id,
       })
       .then(async () => {
-        addToast("Deleted Successfully", { appearance: "success" });
         cartData.refetch();
       })
       .catch((err: any) => {
         if (!(err instanceof TRPCClientError)) throw err;
-        addToast(err.message, { appearance: "error" });
       });
   };
 

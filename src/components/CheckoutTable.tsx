@@ -5,20 +5,19 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { NumericFormat } from "react-number-format";
 import { api } from "~/utils/api";
 import Button from "@mui/material/Button";
 import { TRPCClientError } from "@trpc/client";
-import { useToasts } from "react-toast-notifications";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 
 interface Props {
   id: number;
 }
 
 export default function CheckoutTable({ id }: Props) {
-  const { addToast } = useToasts();
   const cartPriceData = api.cartItem.getCartItem.useQuery({
     page: 1,
     userId: id,
@@ -32,14 +31,27 @@ export default function CheckoutTable({ id }: Props) {
         userId: id,
       })
       .then(async () => {
-        addToast("Checked out Successfully", { appearance: "success" });
+        setOpen(true);
         cartPriceData.refetch();
       })
       .catch((err: any) => {
         if (!(err instanceof TRPCClientError)) throw err;
-        addToast(err.message, { appearance: "error" });
       });
   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string,
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <TableContainer>
       <Table>
@@ -120,6 +132,20 @@ export default function CheckoutTable({ id }: Props) {
                   Checkout
                 </Typography>
               </Button>
+              <Snackbar
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                open={open}
+                autoHideDuration={2000}
+                onClose={handleClose}
+              >
+                <Alert
+                  onClose={handleClose}
+                  severity="success"
+                  sx={{ width: "100%" }}
+                >
+                  Checked out successfully
+                </Alert>
+              </Snackbar>
             </TableCell>
           </TableRow>
         </TableBody>
