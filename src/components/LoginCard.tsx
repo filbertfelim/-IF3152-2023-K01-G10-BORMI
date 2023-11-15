@@ -50,7 +50,7 @@ const LoginCard = ({
 
   const login: SubmitHandler<FormValues> = async (data: FormValues, e) => {
     e?.preventDefault();
-    const res = await signIn("credentials", {
+    const res = await signIn("username-login", {
       username: data.username,
       password: data.password,
       redirect: false,
@@ -58,6 +58,7 @@ const LoginCard = ({
     });
     if (!res?.ok && res?.error) {
       setOpenLoginFailed(true);
+      console.log(res.error);
       setError("root", { message: res.error });
       reset({}, { keepErrors: true, keepValues: true });
       return;
