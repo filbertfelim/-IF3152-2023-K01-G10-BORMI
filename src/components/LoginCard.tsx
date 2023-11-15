@@ -58,7 +58,6 @@ const LoginCard = ({
     });
     if (!res?.ok && res?.error) {
       setOpenLoginFailed(true);
-      console.log(res.error);
       console.log(res);
       setError("root", { message: res.error });
       reset({}, { keepErrors: true, keepValues: true });
