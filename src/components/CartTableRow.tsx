@@ -7,7 +7,7 @@ import { NumericFormat } from "react-number-format";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Typography from "@mui/material/Typography";
-import { Box, Button } from "@mui/material";
+import { Alert, Box, Button, Snackbar } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -53,9 +53,36 @@ export default function CartTableRow({
     setOpen(false);
   };
 
+  const [openEditQuantity, setOpenEditQuantity] = React.useState(false);
+
+  const handleCloseEditQuantity = (
+    event: React.SyntheticEvent | Event,
+    reason?: string,
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenEditQuantity(false);
+  };
+
+  const [openDeleteItem, setOpenDeleteItem] = React.useState(false);
+
+  const handleCloseDeleteItem = (
+    event: React.SyntheticEvent | Event,
+    reason?: string,
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenDeleteItem(false);
+  };
+
   useEffect(() => {
     if (quantity === cartItem.quantity) return;
     editQuantity(cartItem.id, quantity);
+    setOpenEditQuantity(true);
     return;
   }, [quantity]);
 
@@ -75,13 +102,13 @@ export default function CartTableRow({
       <TableCell>
         <div className="flex">
           <img
-        src={cartItem.product.image}
-        alt={"Signature Image"}
-        className="w-[150px]"
+            src={cartItem.product.image}
+            alt={"Signature Image"}
+            className="w-[150px]"
           />
           <Typography
             noWrap
-            className="flex items-center justify-center align-center ml-8"
+            className="align-center ml-8 flex items-center justify-center"
             sx={{
               fontSize: "15px",
               fontFamily: "Nunito",
@@ -169,6 +196,20 @@ export default function CartTableRow({
         <IconButton size="medium" onClick={handleClickOpen}>
           <DeleteIcon fontSize="inherit" color="error" />
         </IconButton>
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          open={openEditQuantity}
+          autoHideDuration={1000}
+          onClose={handleCloseEditQuantity}
+        >
+          <Alert
+            onClose={handleCloseEditQuantity}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Edited quantity successfully
+          </Alert>
+        </Snackbar>
         <Dialog
           open={open}
           onClose={handleClose}
@@ -227,7 +268,10 @@ export default function CartTableRow({
               endIcon={
                 <DeleteIcon fontSize="inherit" sx={{ color: "white" }} />
               }
-              onClick={() => deleteCartItem(cartItem.id)}
+              onClick={() => {
+                deleteCartItem(cartItem.id);
+                setOpenDeleteItem(true);
+              }}
             >
               <Typography
                 sx={{
@@ -240,6 +284,20 @@ export default function CartTableRow({
                 Hapus
               </Typography>
             </Button>
+            <Snackbar
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              open={openDeleteItem}
+              autoHideDuration={1000}
+              onClose={handleCloseDeleteItem}
+            >
+              <Alert
+                onClose={handleCloseDeleteItem}
+                severity="success"
+                sx={{ width: "100%" }}
+              >
+                Deleted item successfully
+              </Alert>
+            </Snackbar>
           </DialogActions>
         </Dialog>
       </TableCell>
