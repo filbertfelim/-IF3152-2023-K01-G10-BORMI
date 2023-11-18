@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import PersonIcon from "@mui/icons-material/Person";
 import { UserRole } from "@prisma/client";
+import { useRouter } from "next/router";
 
 interface Props {
   role: UserRole | undefined;
@@ -19,11 +20,18 @@ interface Props {
 }
 
 function Navbar({ role, username }: Props) {
-  let pages: string[] = [];
+  const router = useRouter();
+  let pages: { title: string; href: string }[] = [];
   if (role === "ADMIN") {
-    pages = ["Daftar Karyawan", "Riwayat Transaksi"];
+    pages = [
+      { title: "Daftar Karyawan", href: "/dashboard-user" },
+      { title: "Riwayat Transaksi", href: "/dashboard-transaction" },
+    ];
   } else if (role === "KASIR") {
-    pages = ["Daftar Produk", "Keranjang"];
+    pages = [
+      { title: "Daftar Produk", href: "/product-list" },
+      { title: "Keranjang", href: "/cart" },
+    ];
   }
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
@@ -105,7 +113,13 @@ function Navbar({ role, username }: Props) {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page["title"]}
+                  onClick={() => {
+                    handleCloseNavMenu();
+                    void router.push(page["href"]);
+                  }}
+                >
                   <Typography
                     textAlign="center"
                     sx={{
@@ -115,7 +129,7 @@ function Navbar({ role, username }: Props) {
                       fontWeight: 800,
                     }}
                   >
-                    {page}
+                    {page["title"]}
                   </Typography>
                 </MenuItem>
               ))}
@@ -139,8 +153,11 @@ function Navbar({ role, username }: Props) {
             </Typography>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page["title"]}
+                onClick={() => {
+                  handleCloseNavMenu();
+                  void router.push(page["href"]);
+                }}
                 sx={{
                   mr: 2,
                   flexGrow: 0,
@@ -157,7 +174,7 @@ function Navbar({ role, username }: Props) {
                   },
                 }}
               >
-                {page}
+                {page["title"]}
               </Button>
             ))}
           </Box>
