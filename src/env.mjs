@@ -8,8 +8,7 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    DATABASE_PRISMA_URL: z.string().url(),
-    DATABASE_URL_NON_POOLING: z.string().url().optional(),
+    DATABASE_URL: z.string().url(),
     NODE_ENV: z.enum(["development", "test", "production"]),
     NEXTAUTH_SECRET:
       process.env.NODE_ENV === "production"
@@ -39,9 +38,7 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-    DATABASE_PRISMA_URL: process.env.DATABASE_PRISMA_URL,
-    DATABASE_URL_NON_POOLING:
-      process.env.DATABASE_URL_NON_POOLING ?? process.env.DATABASE_PRISMA_URL,
+    DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
