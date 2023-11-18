@@ -1,3 +1,4 @@
+import { OtherHouses } from "@mui/icons-material";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import {
@@ -64,6 +65,13 @@ export const transactionRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       let transaction;
 
+      const cart = await ctx.db.cartItem.findMany({
+        where: {
+          userId: input.userId,
+          isPurchased: false,
+        },
+      });
+
       try {
         transaction = await ctx.db.transaction.create({
           data: {
@@ -94,6 +102,60 @@ export const transactionRouter = createTRPCRouter({
           code: "INTERNAL_SERVER_ERROR",
           message: "Failed to update cart item",
         });
+      }
+
+      for (const item of cart) {
+        const product = await ctx.db.product.findFirst({
+          where: {
+            id: item.productId,
+          },
+        });
+
+        // update stock
+        if (product !== null) {
+          await ctx.db.product.updateMany({
+            where: {
+              id: item.productId,
+            },
+            data: {
+              stock: product.stock - item.quantity,
+            },
+          });
+        }
+      }
+
+      for (const item of cart) {
+        const updatedProduct = await ctx.db.product.findFirst({
+          where: {
+            id: item.productId,
+          },
+        });
+
+        if (updatedProduct !== null) {
+          // if stock jadi habis
+          if (updatedProduct.stock === 0) {
+            await ctx.db.cartItem.deleteMany({
+              where: {
+                productId: item.productId,
+                isPurchased: false,
+              },
+            });
+            // quantity di cart > stock
+          } else {
+            await ctx.db.cartItem.updateMany({
+              where: {
+                id: item.id,
+                isPurchased: false,
+              },
+              data: {
+                quantity:
+                  item.quantity > updatedProduct.stock
+                    ? updatedProduct.stock
+                    : item.quantity,
+              },
+            });
+          }
+        }
       }
 
       return {
