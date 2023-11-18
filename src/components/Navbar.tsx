@@ -25,7 +25,7 @@ function Navbar({ role, username }: Props) {
   if (role === "ADMIN") {
     pages = [
       { title: "Daftar Karyawan", href: "/dashboard-user" },
-      { title: "Riwayat Transaksi", href: "/dashboard-transaction" },
+      { title: "Riwayat Transaksi", href: "/transaction" },
     ];
   } else if (role === "KASIR") {
     pages = [
