@@ -114,14 +114,13 @@ export default function TransactionTableRow({ transaction }: Props) {
               justifyItems: "flex-end",
             }}
           >
-            {/* {transaction.date
+            {transaction.date
               .toLocaleDateString("id-ID", {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
               })
-              .replace(/,/g, "")} */}
-            {transaction.date.toString()}
+              .replace(/,/g, "")}
           </Typography>
         </div>
       </TableCell>
