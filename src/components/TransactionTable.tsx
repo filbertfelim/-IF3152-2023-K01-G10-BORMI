@@ -17,15 +17,16 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { Grid } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import moment, { Moment } from "moment";
 
 export default function TransactionTable() {
   const [cursor, setCursor] = useState(1);
-  const [valueStart, setValueStart] = React.useState(null);
-  const [valueEnd, setValueEnd] = React.useState(null);
+  const [valueStart, setValueStart] = React.useState<Moment | string | null>(null);
+  const [valueEnd, setValueEnd] = React.useState<Moment | string | null>(null);
   const transactionData = api.transaction.getTransactions.useQuery({
     page: cursor,
-    startDate: valueStart ?? undefined,
-    endDate: valueEnd ?? undefined,
+    startDate: (valueStart as string) ?? undefined,
+    endDate: (valueEnd as string) ?? undefined,
   });
 
   return transactionData.data?.data.length !== 0 ? (
@@ -45,7 +46,7 @@ export default function TransactionTable() {
             Riwayat Transaksi
           </Typography>
         </Grid>
-        <Grid xs={12} md={5}>
+        <Grid xs={12} md={5} className="flex justify-left lg:justify-end">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               disableFuture
@@ -54,24 +55,21 @@ export default function TransactionTable() {
               views={["year", "month", "day"]}
               value={valueStart}
               onChange={(newValue) => {
-                setValueStart(newValue);
-                console.log("start");
                 if (newValue !== null) {
-                  console.log(newValue as never as string);
+                  setValueStart((newValue as Moment).endOf("day"));
                 }
               }}
             />
             <DatePicker
+              className="ml-4"
               disableFuture
               label="Tanggal akhir"
               openTo="day"
               views={["year", "month", "day"]}
               value={valueEnd}
               onChange={(newValue) => {
-                setValueEnd(newValue);
-                console.log("end");
                 if (newValue !== null) {
-                  console.log(newValue as never as string);
+                  setValueEnd((newValue as Moment).endOf("day"));
                 }
               }}
             />
@@ -211,10 +209,8 @@ export default function TransactionTable() {
               views={["year", "month", "day"]}
               value={valueStart}
               onChange={(newValue) => {
-                setValueStart(newValue);
-                console.log("start");
                 if (newValue !== null) {
-                  console.log(newValue as never as Date);
+                  setValueStart((newValue as Moment).endOf("day"));
                 }
               }}
             />
@@ -225,10 +221,8 @@ export default function TransactionTable() {
               views={["year", "month", "day"]}
               value={valueEnd}
               onChange={(newValue) => {
-                setValueEnd(newValue);
-                console.log("end");
                 if (newValue !== null) {
-                  console.log(newValue as never as Date);
+                  setValueEnd((newValue as Moment).endOf("day"));
                 }
               }}
             />

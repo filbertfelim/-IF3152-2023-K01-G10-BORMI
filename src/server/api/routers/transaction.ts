@@ -20,8 +20,8 @@ export const transactionRouter = createTRPCRouter({
       const data = await ctx.db.transaction.findMany({
         where: {
           date: {
-            gte: input.startDate ? input.startDate : undefined,
-            lte: input.endDate ? input.endDate : undefined,
+            gte: input.startDate ? new Date(input.startDate) : undefined,
+            lte: input.endDate ? new Date(input.endDate) : undefined,
           },
         },
         include: {
@@ -33,13 +33,6 @@ export const transactionRouter = createTRPCRouter({
           date: "desc",
         },
       });
-
-      if (data.length === 0) {
-        throw new TRPCError({
-          code: "NOT_FOUND",
-          message: "No transaction data available",
-        });
-      }
 
       const count = await ctx.db.transaction.count({
         where: {
