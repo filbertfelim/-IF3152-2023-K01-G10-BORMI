@@ -12,22 +12,44 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { TRPCClientError } from "@trpc/client";
+import RemoveIcon from '@mui/icons-material/Remove';
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { Grid } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 
 export default function TransactionTable() {
   const [cursor, setCursor] = useState(1);
   const [valueStart, setValueStart] = React.useState<Moment | string | null>(null);
   const [valueEnd, setValueEnd] = React.useState<Moment | string | null>(null);
+  const [clearedStart, setClearedStart] = React.useState<boolean>(false);
+  const [clearedEnd, setClearedEnd] = React.useState<boolean>(false);
   const transactionData = api.transaction.getTransactions.useQuery({
     page: cursor,
     startDate: (valueStart as string) ?? undefined,
     endDate: (valueEnd as string) ?? undefined,
   });
+
+  React.useEffect(() => {
+    if (clearedStart) {
+      setValueStart(null);
+      const timeout = setTimeout(() => {
+        setClearedStart(false);
+      }, 1500);
+  
+      return () => clearTimeout(timeout);
+    }
+    if (clearedEnd) {
+      setValueEnd(null);
+      const timeout = setTimeout(() => {
+        setClearedEnd(false);
+      }, 1500);
+  
+      return () => clearTimeout(timeout);
+    }
+    return () => {};
+  }, [clearedStart, clearedEnd]);
 
   return transactionData.data?.data.length !== 0 ? (
     <>
@@ -46,30 +68,61 @@ export default function TransactionTable() {
             Riwayat Transaksi
           </Typography>
         </Grid>
-        <Grid xs={12} md={5} className="flex justify-left lg:justify-end">
+        <Grid xs={12} md={5} pb={3} className="flex justify-left lg:justify-end">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               disableFuture
               label="Tanggal awal"
               openTo="day"
               views={["year", "month", "day"]}
+              format="DD/MM/YYYY"
+              sx={{
+                width: 260,
+                '.MuiOutlinedInput-root': {
+                  borderRadius: '10px',
+                },
+              }}
+              slotProps={{
+                field: { clearable: true, onClear: () => setClearedStart(true) },
+              }}
               value={valueStart}
               onChange={(newValue) => {
                 if (newValue !== null) {
                   setValueStart((newValue as Moment).endOf("day"));
+                } else {
+                  setValueStart(null);
                 }
               }}
             />
+            <Box px={1} pt={1.5}>
+              <IconButton 
+                size="small" 
+                sx={{ pointerEvents: 'none' }}
+              >
+                <RemoveIcon fontSize="inherit" />
+              </IconButton>
+            </Box>
             <DatePicker
-              className="ml-4"
               disableFuture
               label="Tanggal akhir"
               openTo="day"
               views={["year", "month", "day"]}
+              format="DD/MM/YYYY"
+              sx={{
+                width: 260,
+                '.MuiOutlinedInput-root': {
+                  borderRadius: '10px',
+                },
+              }}
+              slotProps={{
+                field: { clearable: true, onClear: () => setClearedEnd(true) },
+              }}
               value={valueEnd}
               onChange={(newValue) => {
                 if (newValue !== null) {
                   setValueEnd((newValue as Moment).endOf("day"));
+                } else {
+                  setValueEnd(null);
                 }
               }}
             />
@@ -200,29 +253,61 @@ export default function TransactionTable() {
             Riwayat Transaksi
           </Typography>
         </Grid>
-        <Grid xs={12} md={5}>
+        <Grid xs={12} md={5} pb={3} className="flex justify-left lg:justify-end">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               disableFuture
               label="Tanggal awal"
               openTo="day"
               views={["year", "month", "day"]}
+              format="DD/MM/YYYY"
+              sx={{
+                width: 260,
+                '.MuiOutlinedInput-root': {
+                  borderRadius: '10px',
+                },
+              }}
+              slotProps={{
+                field: { clearable: true, onClear: () => setClearedStart(true) },
+              }}
               value={valueStart}
               onChange={(newValue) => {
                 if (newValue !== null) {
                   setValueStart((newValue as Moment).endOf("day"));
+                } else {
+                  setValueStart(null);
                 }
               }}
             />
+            <Box px={1} pt={1.5}>
+              <IconButton 
+                size="small" 
+                sx={{ pointerEvents: 'none' }}
+              >
+                <RemoveIcon fontSize="inherit" />
+              </IconButton>
+            </Box>
             <DatePicker
               disableFuture
               label="Tanggal akhir"
               openTo="day"
               views={["year", "month", "day"]}
+              format="DD/MM/YYYY"
+              sx={{
+                width: 260,
+                '.MuiOutlinedInput-root': {
+                  borderRadius: '10px',
+                },
+              }}
+              slotProps={{
+                field: { clearable: true, onClear: () => setClearedEnd(true) },
+              }}
               value={valueEnd}
               onChange={(newValue) => {
                 if (newValue !== null) {
                   setValueEnd((newValue as Moment).endOf("day"));
+                } else {
+                  setValueEnd(null);
                 }
               }}
             />

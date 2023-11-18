@@ -119,8 +119,7 @@ export default function TransactionTableRow({ transaction }: Props) {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
-              })
-              .replace(/,/g, "")}
+              })}
           </Typography>
         </div>
       </TableCell>
@@ -256,8 +255,8 @@ export default function TransactionTableRow({ transaction }: Props) {
           sx={{
             fontSize: "15px",
             fontFamily: "Nunito",
-            fontWeight: 800,
-            color: "#818181",
+            fontWeight: 600,
+            color: "#a30012",
           }}
         >
           <NumericFormat
