@@ -8,11 +8,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TransactionTableRow from "./TransactionTableRow";
 import IconButton from "@mui/material/IconButton";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import RemoveIcon from '@mui/icons-material/Remove';
+import Pagination from '@mui/material/Pagination';
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { Grid } from "@mui/material";
@@ -34,6 +33,7 @@ export default function TransactionTable() {
   React.useEffect(() => {
     if (clearedStart) {
       setValueStart(null);
+      setCursor(1);
       const timeout = setTimeout(() => {
         setClearedStart(false);
       }, 1500);
@@ -42,6 +42,7 @@ export default function TransactionTable() {
     }
     if (clearedEnd) {
       setValueEnd(null);
+      setCursor(1);
       const timeout = setTimeout(() => {
         setClearedEnd(false);
       }, 1500);
@@ -53,8 +54,8 @@ export default function TransactionTable() {
 
   return transactionData.data?.data.length !== 0 ? (
     <>
-      <Grid container spacing={4}>
-        <Grid xs={12} md={7}>
+      <Grid container spacing={1}>
+        <Grid xs={12} md={6}>
           <Typography
             className="mb-8 flex"
             noWrap
@@ -68,7 +69,7 @@ export default function TransactionTable() {
             Riwayat Transaksi
           </Typography>
         </Grid>
-        <Grid xs={12} md={5} pb={3} className="flex justify-left lg:justify-end">
+        <Grid xs={12} md={6} pb={3} className="flex justify-end lg:justify-end">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               disableFuture
@@ -91,8 +92,10 @@ export default function TransactionTable() {
                   setValueStart((newValue as Moment).endOf("day"));
                 } else {
                   setValueStart(null);
+                  setCursor(1);
                 }
               }}
+              maxDate={valueEnd}
             />
             <Box px={1} pt={1.5}>
               <IconButton 
@@ -123,8 +126,10 @@ export default function TransactionTable() {
                   setValueEnd((newValue as Moment).endOf("day"));
                 } else {
                   setValueEnd(null);
+                  setCursor(1);
                 }
               }}
+              minDate={valueStart}
             />
           </LocalizationProvider>
         </Grid>
@@ -217,29 +222,26 @@ export default function TransactionTable() {
               </TableBody>
             </Table>
           </TableContainer>
-          <Box className="mt-8 flex justify-end">
-            <IconButton
-              size="medium"
-              onClick={() => setCursor(cursor - 1)}
-              disabled={cursor === 1}
-            >
-              <KeyboardArrowLeftIcon fontSize="inherit" />
-            </IconButton>
-            <IconButton
-              size="medium"
-              onClick={() => setCursor(cursor + 1)}
-              disabled={transactionData.data?.totalPage === cursor}
-            >
-              <KeyboardArrowRightIcon fontSize="inherit" />
-            </IconButton>
+          <Box className="mt-6 mb-4 flex justify-end">
+            <Pagination 
+              size="large"
+              count={transactionData.data?.totalPage}
+              page={cursor} 
+              onChange={(event, value) => setCursor(value)}
+              sx={{
+                '& .MuiPaginationItem-root': {
+                  color: '#6f6f6f',
+                },
+              }}
+            />
           </Box>
         </Grid>
       </Grid>
     </>
   ) : (
     <>
-      <Grid container spacing={4}>
-        <Grid xs={12} md={7}>
+      <Grid container spacing={1}>
+      <Grid xs={12} md={6}>
           <Typography
             className="mb-8 flex"
             noWrap
@@ -253,7 +255,7 @@ export default function TransactionTable() {
             Riwayat Transaksi
           </Typography>
         </Grid>
-        <Grid xs={12} md={5} pb={3} className="flex justify-left lg:justify-end">
+        <Grid xs={12} md={6} pb={3} className="flex justify-end lg:justify-end">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               disableFuture
@@ -276,8 +278,10 @@ export default function TransactionTable() {
                   setValueStart((newValue as Moment).endOf("day"));
                 } else {
                   setValueStart(null);
+                  setCursor(1);
                 }
               }}
+              maxDate={valueEnd}
             />
             <Box px={1} pt={1.5}>
               <IconButton 
@@ -308,14 +312,16 @@ export default function TransactionTable() {
                   setValueEnd((newValue as Moment).endOf("day"));
                 } else {
                   setValueEnd(null);
+                  setCursor(1);
                 }
               }}
+              minDate={valueStart}
             />
           </LocalizationProvider>
         </Grid>
         <Grid xs={12}>
           <Typography
-            className="flex justify-center md:text-lg lg:text-2xl mt-8"
+            className="flex justify-center md:text-lg lg:text-xl mt-8"
             align="center"
             sx={{
               fontSize: "15px",

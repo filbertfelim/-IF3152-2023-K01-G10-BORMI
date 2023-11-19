@@ -1,15 +1,12 @@
-import IconButton from "@mui/material/IconButton";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NumericFormat } from "react-number-format";
-import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import { Alert, Box, Button, Divider, Grid, Snackbar } from "@mui/material";
+import { Box, Divider, Grid, } from "@mui/material";
 import Dialog, { DialogProps } from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TransactionDetailsRow from "./TransactionDetailsRow";
 import { api } from "~/utils/api";
@@ -144,16 +141,17 @@ export default function TransactionTableRow({ transaction }: Props) {
           onClose={handleClose}
           scroll={scroll}
           className="w-auto"
-          PaperProps={{ sx: { borderRadius: "20px", p : 4 } }}
+          PaperProps={{ sx: { borderRadius: "20px", p : 3}}}
         >
-          <DialogTitle id="scroll-dialog-title" className="my-4 flex flex-col">
+          <DialogTitle className="mb-1 flex flex-col">
             <Typography
+              noWrap
               sx={{
                 fontSize: "25px",
                 fontFamily: "Nunito",
                 fontWeight: 800,
                 color: "black",
-                mb: 4,
+                mb: 5,
               }}
               className="flex items-center justify-center"
             >
@@ -167,10 +165,10 @@ export default function TransactionTableRow({ transaction }: Props) {
                 fontWeight: 500,
                 color: "#818181",
                 justifyItems: "flex-end",
-                mb: 2,
+                mb: 1,
               }}
             >
-              Transaction {transaction.id} - User ID {transaction.userId}
+              Transaction ID #{transaction.id} - UserID #{transaction.userId}
             </Typography>
             <Typography
               noWrap
@@ -188,11 +186,10 @@ export default function TransactionTableRow({ transaction }: Props) {
                   day: "numeric",
                   year: "numeric",
                 })
-                .replace(/,/g, "")}
+              }
             </Typography>
           </DialogTitle>
           <DialogContent
-            dividers={scroll === "paper"}
             className="flex flex-col"
           >
             <Box ref={descriptionElementRef}>
@@ -202,7 +199,7 @@ export default function TransactionTableRow({ transaction }: Props) {
                     <TransactionDetailsRow
                       cartItem={item}
                     ></TransactionDetailsRow>
-                    <Divider className="mt-4" />
+                    <Divider />
                   </>
                 );
               })}
@@ -215,11 +212,11 @@ export default function TransactionTableRow({ transaction }: Props) {
                   className="flex justify-start"
                   noWrap
                   sx={{
-                    fontSize: "18px",
+                    fontSize: "19px",
                     fontFamily: "Nunito",
-                    fontWeight: 800,
-                    color: "#black",
-                    pt: 6,
+                    fontWeight: 600,
+                    color: "#595959",
+                    pt: 4,
                   }}
                 >
                   Total Harga
@@ -234,6 +231,7 @@ export default function TransactionTableRow({ transaction }: Props) {
                     fontWeight: 800,
                     color: "black",
                     mt: 1,
+                    mb: 2,
                   }}
                 >
                   <NumericFormat
