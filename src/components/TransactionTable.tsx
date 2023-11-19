@@ -15,19 +15,25 @@ import Box from "@mui/material/Box";
 import { TRPCClientError } from "@trpc/client";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { Grid } from "@mui/material";
+import { Grid, Pagination } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import moment, { Moment } from "moment";
 
 export default function TransactionTable() {
   const [cursor, setCursor] = useState(1);
-  const [valueStart, setValueStart] = React.useState<Moment | string | null>(null);
+  const [valueStart, setValueStart] = React.useState<Moment | string | null>(
+    null,
+  );
   const [valueEnd, setValueEnd] = React.useState<Moment | string | null>(null);
   const transactionData = api.transaction.getTransactions.useQuery({
     page: cursor,
     startDate: (valueStart as string) ?? undefined,
     endDate: (valueEnd as string) ?? undefined,
   });
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setCursor(value);
+  };
 
   return transactionData.data?.data.length !== 0 ? (
     <>
@@ -46,7 +52,7 @@ export default function TransactionTable() {
             Riwayat Transaksi
           </Typography>
         </Grid>
-        <Grid xs={12} md={5} className="flex justify-left lg:justify-end">
+        <Grid xs={12} md={5} className="justify-left flex lg:justify-end">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               disableFuture
@@ -164,22 +170,13 @@ export default function TransactionTable() {
               </TableBody>
             </Table>
           </TableContainer>
-          <Box className="mt-8 flex justify-end">
-            <IconButton
-              size="medium"
-              onClick={() => setCursor(cursor - 1)}
-              disabled={cursor === 1}
-            >
-              <KeyboardArrowLeftIcon fontSize="inherit" />
-            </IconButton>
-            <IconButton
-              size="medium"
-              onClick={() => setCursor(cursor + 1)}
-              disabled={transactionData.data?.totalPage === cursor}
-            >
-              <KeyboardArrowRightIcon fontSize="inherit" />
-            </IconButton>
-          </Box>
+          <Pagination
+            className="mt-4 flex justify-end"
+            color="standard"
+            size="large"
+            count={transactionData.data?.totalPage}
+            onChange={handleChange}
+          />
         </Grid>
       </Grid>
     </>
@@ -230,7 +227,7 @@ export default function TransactionTable() {
         </Grid>
         <Grid xs={12}>
           <Typography
-            className="flex justify-center md:text-lg lg:text-2xl mt-8"
+            className="mt-8 flex justify-center md:text-lg lg:text-2xl"
             align="center"
             sx={{
               fontSize: "15px",

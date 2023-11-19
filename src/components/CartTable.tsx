@@ -13,6 +13,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { TRPCClientError } from "@trpc/client";
+import Pagination from "@mui/material/Pagination";
 
 interface Props {
   id: number;
@@ -20,6 +21,11 @@ interface Props {
 
 export default function CartTable({ id }: Props) {
   const [cursor, setCursor] = useState(1);
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setCursor(value);
+  };
+  
   const cartData = api.cartItem.getCartItem.useQuery({
     page: cursor,
     userId: id,
@@ -132,22 +138,13 @@ export default function CartTable({ id }: Props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Box className="mt-8 flex justify-end">
-        <IconButton
-          size="medium"
-          onClick={() => setCursor(cursor - 1)}
-          disabled={cursor === 1}
-        >
-          <KeyboardArrowLeftIcon fontSize="inherit" />
-        </IconButton>
-        <IconButton
-          size="medium"
-          onClick={() => setCursor(cursor + 1)}
-          disabled={cartData.data?.totalPage === cursor}
-        >
-          <KeyboardArrowRightIcon fontSize="inherit" />
-        </IconButton>
-      </Box>
+      <Pagination
+        className="mt-4 flex justify-end"
+        color="standard"
+        size="large"
+        count={cartData.data?.totalPage}
+        onChange={handleChange}
+      />
     </>
   ) : (
     <>
