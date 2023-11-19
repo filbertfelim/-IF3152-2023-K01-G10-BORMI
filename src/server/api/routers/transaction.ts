@@ -1,3 +1,4 @@
+import { OtherHouses } from "@mui/icons-material";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import {
@@ -19,8 +20,8 @@ export const transactionRouter = createTRPCRouter({
       const data = await ctx.db.transaction.findMany({
         where: {
           date: {
-            gte: input.startDate ? input.startDate : undefined,
-            lte: input.endDate ? input.endDate : undefined,
+            gte: input.startDate ? new Date(input.startDate) : undefined,
+            lte: input.endDate ? new Date(input.endDate) : undefined,
           },
         },
         include: {
@@ -32,13 +33,6 @@ export const transactionRouter = createTRPCRouter({
           date: "desc",
         },
       });
-
-      if (data.length === 0) {
-        throw new TRPCError({
-          code: "NOT_FOUND",
-          message: "No transaction data available",
-        });
-      }
 
       const count = await ctx.db.transaction.count({
         where: {
@@ -63,6 +57,13 @@ export const transactionRouter = createTRPCRouter({
     )
     .mutation(async ({ ctx, input }) => {
       let transaction;
+
+      const cart = await ctx.db.cartItem.findMany({
+        where: {
+          userId: input.userId,
+          isPurchased: false,
+        },
+      });
 
       try {
         transaction = await ctx.db.transaction.create({
@@ -94,6 +95,60 @@ export const transactionRouter = createTRPCRouter({
           code: "INTERNAL_SERVER_ERROR",
           message: "Failed to update cart item",
         });
+      }
+
+      for (const item of cart) {
+        const product = await ctx.db.product.findFirst({
+          where: {
+            id: item.productId,
+          },
+        });
+
+        // update stock
+        if (product !== null) {
+          await ctx.db.product.updateMany({
+            where: {
+              id: item.productId,
+            },
+            data: {
+              stock: product.stock - item.quantity,
+            },
+          });
+        }
+      }
+
+      for (const item of cart) {
+        const updatedProduct = await ctx.db.product.findFirst({
+          where: {
+            id: item.productId,
+          },
+        });
+
+        if (updatedProduct !== null) {
+          // if stock jadi habis
+          if (updatedProduct.stock === 0) {
+            await ctx.db.cartItem.deleteMany({
+              where: {
+                productId: item.productId,
+                isPurchased: false,
+              },
+            });
+            // quantity di cart > stock
+          } else {
+            await ctx.db.cartItem.updateMany({
+              where: {
+                id: item.id,
+                isPurchased: false,
+              },
+              data: {
+                quantity:
+                  item.quantity > updatedProduct.stock
+                    ? updatedProduct.stock
+                    : item.quantity,
+              },
+            });
+          }
+        }
       }
 
       return {
