@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NumericFormat } from "react-number-format";
 import { api } from "~/utils/api";
 
@@ -24,23 +24,28 @@ export default function TransactionDetailsRow({
 
   return (
     <>
-      <Grid container spacing={2} className="mt-8 px-4">
-        <Grid xs={3}>
+      <Grid container spacing={2} className="my-4 px-4">
+        <Grid 
+         xs={3} 
+         style={{ maxHeight: '130px', maxWidth: '130px' }} 
+         className="flex justify-center"
+        >
           <img
             src={productData.data?.image}
             alt={"Signature Image"}
-            className="w-[450px]"
+            style={{ maxHeight: '100%', maxWidth: '100%' }}
           />
         </Grid>
-        <Grid xs={9} className="px-4">
-          <Grid container spacing={2} className="mt-8 px-4">
+        <Grid xs={9} className="flex items-center px-2">
+          <Grid container spacing={1} className="pl-4">
             <Grid xs={12}>
               <Typography
                 sx={{
-                  fontSize: "18px",
+                  fontSize: "17px",
                   fontFamily: "Nunito",
-                  fontWeight: 800,
+                  fontWeight: 600,
                   color: "black",
+                  pb: "14px"
                 }}
               >
                 {productData.data?.name}
@@ -54,9 +59,10 @@ export default function TransactionDetailsRow({
                   fontFamily: "Nunito",
                   fontWeight: 500,
                   color: "#818181",
+                  pb: "4px"
                 }}
               >
-                {cartItem.quantity} x{" "}
+                {cartItem.quantity} x {" "}
                 <NumericFormat
                   value={productData.data?.price}
                   displayType={"text"}
