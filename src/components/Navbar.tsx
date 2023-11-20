@@ -13,6 +13,11 @@ import MenuItem from "@mui/material/MenuItem";
 import PersonIcon from "@mui/icons-material/Person";
 import { UserRole } from "@prisma/client";
 import { useRouter } from "next/router";
+import Snackbar from "@mui/material/Snackbar";
+import DialogContentText from "@mui/material/DialogContentText";
+import { Dialog, DialogContent, DialogActions, Alert } from "@mui/material";
+import LogoutIcon from '@mui/icons-material/Logout';
+import { signOut } from "next-auth/react";
 
 interface Props {
   role: UserRole | undefined;
@@ -41,8 +46,43 @@ function Navbar({ role, username }: Props) {
     setAnchorElNav(event.currentTarget);
   };
 
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null,
+  );
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const [openLogOut, setOpenLogOut] = React.useState(false);
+
+  const handleCloseLogOut = (
+    event: React.SyntheticEvent | Event,
+    reason?: string,
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenLogOut(false);
   };
 
   return (
@@ -50,9 +90,115 @@ function Navbar({ role, username }: Props) {
       <Container maxWidth={false} className="bg-[#FFF8EE] text-black">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 40, display: "flex" }}>
-            <Avatar sx={{ bgcolor: "black", color: "#FFF8EE" }}>
+            <Avatar
+              onClick={handleOpenUserMenu}
+              sx={{ bgcolor: "black", color: "#FFF8EE" }}
+            >
               <PersonIcon />
             </Avatar>
+            <Menu
+              sx={{ mt: "45px" }}
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              <MenuItem key="log out" onClick={() => {
+                      setOpen(true);
+                    }}>
+                  <Typography
+                    textAlign="center"
+                    sx={{
+                      color: "black",
+                      display: "block",
+                      fontFamily: "Nunito",
+                      fontWeight: 800,
+                    }}  
+                  >
+                    Keluar
+                  </Typography>
+              </MenuItem>
+            </Menu>
+            <Dialog
+              open={open}
+              onClose={handleClose}
+              PaperProps={{ sx: { borderRadius: "20px" } }}
+            >
+              <DialogContent className="mx-8 pt-8">
+                <DialogContentText>
+                  <Typography
+                    sx={{
+                      fontSize: "18px",
+                      fontFamily: "Nunito",
+                      fontWeight: 800,
+                      color: "black",
+                      textAlign: "center",
+                    }}
+                  >
+                    Apakah anda ingin keluar?
+                  </Typography>
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions className="flex justify-center space-x-4 pb-4">
+                <Button
+                  onClick={handleClose}
+                  className="bg-[#FFC887] px-4 font-[1100] text-black hover:bg-[#c79960]"
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "13px",
+                      fontFamily: "Nunito",
+                      fontWeight: 800,
+                      mt: 0.5,
+                    }}
+                  >
+                    Batal
+                  </Typography>
+                </Button>
+                <Button
+                  className="bg-red-500 px-4 text-white hover:bg-red-700"
+                  endIcon={
+                    <LogoutIcon fontSize="inherit" sx={{ color: "white" }} />
+                  }
+                  onClick={() => {
+                    signOut();
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "13px",
+                      fontFamily: "Nunito",
+                      fontWeight: 800,
+                      mt: 0.5,
+                    }}
+                  >
+                    Keluar
+                  </Typography>
+                </Button>
+                <Snackbar
+                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                  open={openLogOut}
+                  autoHideDuration={1000}
+                  onClose={handleCloseLogOut}
+                >
+                  <Alert
+                    onClose={handleCloseLogOut}
+                    severity="success"
+                    sx={{ width: "100%" }}
+                  >
+                    Berhasil keluar dari akun
+                  </Alert>
+                </Snackbar>
+              </DialogActions>
+            </Dialog>
             <Typography
               variant="body2"
               noWrap
