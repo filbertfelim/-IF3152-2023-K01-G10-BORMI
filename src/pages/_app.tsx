@@ -16,7 +16,7 @@ const cache = createEmotionCache();
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
-  pageProps: { session, ...pageProps },
+  pageProps: { session, ...pageProps }, 
 }) => {
   return (
     <>
