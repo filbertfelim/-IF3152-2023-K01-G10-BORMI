@@ -57,9 +57,9 @@ export default function TransactionTable() {
   return transactionData.data?.data.length !== 0 ? (
     <>
       <Grid container spacing={1}>
-        <Grid xs={12} md={6}>
+        <Grid xs={12} md={6} className="mb-8">
           <Typography
-            className="mb-8 flex"
+            className=" flex"
             noWrap
             sx={{
               fontSize: "30px",
@@ -71,7 +71,7 @@ export default function TransactionTable() {
             Riwayat Transaksi
           </Typography>
         </Grid>
-        <Grid xs={12} md={5} className="justify-left flex lg:justify-end">
+        <Grid xs={12} md={6} className="justify-left flex lg:justify-end mb-8">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               disableFuture
