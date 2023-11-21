@@ -1,4 +1,4 @@
-import { AssignmentReturnRounded } from "@mui/icons-material";
+import { hash } from "bcrypt";
 import { UserRole } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
@@ -50,7 +50,7 @@ export const userRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const pastUser = await ctx.db.user.findUnique({
         where: {
-          username: input.username,
+          username: input.username.trim().toLowerCase(),
         },
       });
 
@@ -60,11 +60,12 @@ export const userRouter = createTRPCRouter({
           message: "User already exist",
         });
       }
+      input.password = await hash(input.password, 10);
 
       try {
         await ctx.db.user.create({
           data: {
-            username: input.username,
+            username: input.username.trim().toLowerCase(),
             role: input.role,
             password: input.password,
           },
@@ -76,7 +77,7 @@ export const userRouter = createTRPCRouter({
       } catch (error) {
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
-          message: "Failed to create product",
+          message: "Failed to create user",
         });
       }
     }),
@@ -88,26 +89,12 @@ export const userRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      const existingUser = await ctx.db.user.findUnique({
-        where: {
-          id: input.id,
-        },
-      });
-
-      if (!existingUser) {
-        throw new TRPCError({
-          code: "NOT_FOUND",
-          message: "User not found",
-        });
-      }
-
       try {
         await ctx.db.user.delete({
           where: {
             id: input.id,
           },
         });
-
         return {
           message: "User deleted successfully",
         };
@@ -123,25 +110,30 @@ export const userRouter = createTRPCRouter({
     .input(
       z.object({
         id: z.number(),
-        username: z.string().min(1).optional(),
-        password: z.string().min(1).optional(),
-        role: z.nativeEnum(UserRole).optional(),
+        username: z.string().min(1),
+        password: z.string().min(1),
+        role: z.nativeEnum(UserRole),
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      const existingUser = await ctx.db.user.findUnique({
+      const existingUser = await ctx.db.user.findFirst({
         where: {
-          id: input.id,
+          NOT: {
+            id: input.id,
+          },
+        },
+        select: {
+          username: true,
         },
       });
 
-      if (existingUser !== null) {
+      if (existingUser?.username === input.username.trim().toLowerCase()) {
         throw new TRPCError({
           code: "NOT_FOUND",
           message: "User already exist",
         });
       }
-
+      input.password = await hash(input.password, 10);
       try {
         await ctx.db.user.update({
           where: {
@@ -149,12 +141,11 @@ export const userRouter = createTRPCRouter({
           },
           data: {
             id: input.id,
-            username: input.username ? input.username : undefined,
-            password: input.password ? input.password : undefined,
-            role: input.role ? input.role : undefined,
+            username: input.username.trim().toLowerCase(),
+            password: input.password,
+            role: input.role,
           },
         });
-
         return {
           message: "User updated successfully",
         };
