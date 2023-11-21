@@ -16,7 +16,7 @@ export default function cart() {
   return (
     <>
       <Head>
-        <title>CART - BORMI</title>
+        <title>KERANJANG - BORMI</title>
       </Head>
       <Navbar role={data?.user.role} username={userData.data?.username as string}></Navbar>
       <Container maxWidth={false} className="mt-8 md:px-8 lg:px-16">

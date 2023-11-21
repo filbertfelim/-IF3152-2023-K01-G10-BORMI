@@ -5,7 +5,7 @@ import { api } from "~/utils/api";
 import TransactionTable from "~/components/TransactionTable";
 import { withSession } from "~/server/auth/withSession";
 import { useSession } from "next-auth/react";
-
+import Head from "next/head";
 
 export const getServerSideProps = withSession({ type: "ADMIN" });
 
@@ -16,6 +16,9 @@ export default function transaction() {
   });
   return (
     <>
+      <Head>
+        <title>DASHBOARD TRANSAKSI - BORMI</title>
+      </Head>
       <Navbar
         role={data?.user.role}
         username={userData.data?.username as string}

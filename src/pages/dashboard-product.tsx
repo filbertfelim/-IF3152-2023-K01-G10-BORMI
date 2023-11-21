@@ -17,7 +17,7 @@ export default function dashboardproduct() {
     return (
       <>
         <Head>
-          <title>DASHBOARD PRODUCT - BORMI</title>
+          <title>DASHBOARD PRODUK - BORMI</title>
         </Head>
         <Navbar role={data?.user.role} username={userData.data?.username as string}></Navbar>
         <ProductTable></ProductTable>
