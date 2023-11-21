@@ -10,9 +10,10 @@ export const productRouter = createTRPCRouter({
   getProducts: protectedProcedure
     .input(
       z.object({
-        category: z.string().optional(),
+        category: z.array(z.string()).optional(),
         searchQuery: z.string().optional(),
         page: z.number(),
+        withZeroStock: z.boolean(),
       }),
     )
     .query(async ({ ctx, input }) => {
@@ -21,7 +22,8 @@ export const productRouter = createTRPCRouter({
           name: {
             contains: input.searchQuery ? input.searchQuery : undefined,
           },
-          category: input.category ? input.category : undefined,
+          category: input.category ? { in: input.category } : undefined,
+          stock: input.withZeroStock ? undefined : { gt: 0 },
         },
         take: 12,
         skip: (input.page - 1) * 12,
@@ -32,7 +34,8 @@ export const productRouter = createTRPCRouter({
           name: {
             contains: input.searchQuery ? input.searchQuery : undefined,
           },
-          category: input.category ? input.category : undefined,
+          category: input.category ? { in: input.category } : undefined,
+          stock: input.withZeroStock ? undefined : { gt: 0 },
         },
       });
 
@@ -54,6 +57,29 @@ export const productRouter = createTRPCRouter({
           id: input.id,
         },
       });
+    }),
+
+  isProductInCartItem: protectedProcedure
+    .input(
+      z.object({
+        productId: z.number(),
+        id: z.number(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const data = await ctx.db.cartItem.findFirst({
+        where: {
+          productId: input.productId,
+          userId: input.id,
+          isPurchased: false,
+        },
+      });
+
+      if (data !== null) {
+        return { data, isInCart: true };
+      } else {
+        return { data, isInCart: false };
+      }
     }),
 
   addProduct: protectedProcedure
