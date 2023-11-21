@@ -129,7 +129,6 @@ export default function ProductTableRow({
 
   const editProductItem: SubmitHandler<FormValues> = (data: FormValues, e) => {
     e?.preventDefault();
-    console.log(data);
     try {
       editProduct(
         productItem.id,

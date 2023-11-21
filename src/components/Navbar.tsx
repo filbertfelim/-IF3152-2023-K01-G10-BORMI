@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 import Snackbar from "@mui/material/Snackbar";
 import DialogContentText from "@mui/material/DialogContentText";
 import { Dialog, DialogContent, DialogActions, Alert } from "@mui/material";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 import { signOut } from "next-auth/react";
 
 interface Props {
@@ -111,20 +111,23 @@ function Navbar({ role, username }: Props) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem key="log out" onClick={() => {
-                      setOpen(true);
-                    }}>
-                  <Typography
-                    textAlign="center"
-                    sx={{
-                      color: "black",
-                      display: "block",
-                      fontFamily: "Nunito",
-                      fontWeight: 800,
-                    }}  
-                  >
-                    Keluar
-                  </Typography>
+              <MenuItem
+                key="log out"
+                onClick={() => {
+                  setOpen(true);
+                }}
+              >
+                <Typography
+                  textAlign="center"
+                  sx={{
+                    color: "black",
+                    display: "block",
+                    fontFamily: "Nunito",
+                    fontWeight: 800,
+                  }}
+                >
+                  Keluar
+                </Typography>
               </MenuItem>
             </Menu>
             <Dialog
@@ -229,58 +232,64 @@ function Navbar({ role, username }: Props) {
           >
             BORMI
           </Typography>
-          <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page["title"]}
-                  onClick={() => {
-                    handleCloseNavMenu();
-                    void router.push(page["href"]);
+          {role !== "INVENTARIS" ? (
+            <>
+              <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
                   }}
                 >
-                  <Typography
-                    textAlign="center"
-                    sx={{
-                      color: "black",
-                      display: "block",
-                      fontFamily: "Nunito",
-                      fontWeight: 800,
-                    }}
-                  >
-                    {page["title"]}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+                  {pages.map((page) => (
+                    <MenuItem
+                      key={page["title"]}
+                      onClick={() => {
+                        handleCloseNavMenu();
+                        void router.push(page["href"]);
+                      }}
+                    >
+                      <Typography
+                        textAlign="center"
+                        sx={{
+                          color: "black",
+                          display: "block",
+                          fontFamily: "Nunito",
+                          fontWeight: 800,
+                        }}
+                      >
+                        {page["title"]}
+                      </Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            </>
+          ) : (
+            <></>
+          )}
           <Box sx={{ flexGrow: 10000, display: { xs: "none", md: "flex" } }}>
             <Typography
               variant="body2"
