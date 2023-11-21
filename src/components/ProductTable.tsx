@@ -374,7 +374,7 @@ export default function ProductTable() {
                 </TableBody>
               </Table>
             </TableContainer>
-            <Box className="mt-8 flex justify-end">
+            <Box className="my-8 flex justify-end">
             <Pagination
                 size="large"
                 count={productData.data?.totalPage}
