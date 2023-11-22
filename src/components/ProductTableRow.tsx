@@ -153,7 +153,7 @@ export default function ProductTableRow({
       <TableCell>
         <Typography
           noWrap
-          className="align-center ml-8 flex items-center justify-center"
+          className="align-center ml-8 flex items-center justify-star"
           sx={{
             fontSize: "15px",
             fontFamily: "Nunito",
@@ -187,7 +187,6 @@ export default function ProductTableRow({
             fontWeight: 700,
             color: "inherit",
             pt: 0.4,
-            px: 3,
           }}
         >
           {productItem.category}

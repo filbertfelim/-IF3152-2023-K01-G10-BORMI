@@ -76,7 +76,7 @@ export default function ProductGrid({ id }: Props) {
               color: "inherit",
             }}
           >
-            Riwayat Transaksi
+            Daftar Produk
           </Typography>
         </Grid>
         <Grid xs={12} md={6} className="justify-left mb-8 flex lg:justify-end">
