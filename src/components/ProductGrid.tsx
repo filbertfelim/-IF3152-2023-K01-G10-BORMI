@@ -60,6 +60,7 @@ export default function ProductGrid({ id }: Props) {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value,
     );
+    setCursor(1);
   };
 
   return (
@@ -76,7 +77,7 @@ export default function ProductGrid({ id }: Props) {
               color: "inherit",
             }}
           >
-            Riwayat Transaksi
+            Daftar Produk
           </Typography>
         </Grid>
         <Grid xs={12} md={6} className="justify-left mb-8 flex lg:justify-end">

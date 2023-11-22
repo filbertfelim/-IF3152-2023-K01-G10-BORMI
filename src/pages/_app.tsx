@@ -4,13 +4,8 @@ import { type AppType } from "next/app";
 import { CacheProvider } from "@emotion/react";
 import { api } from "~/utils/api";
 import "~/styles/globals.css";
+import "@uploadthing/react/styles.css";
 import createEmotionCache from "../../createEmotionCache";
-import dayjs from "dayjs";
-import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
-
-dayjs.extend(utc);
-dayjs.extend(timezone);
 
 const cache = createEmotionCache();
 

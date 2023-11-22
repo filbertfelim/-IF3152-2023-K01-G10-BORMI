@@ -175,10 +175,10 @@ export default function ProductTable() {
 
   return (productData.data?.data.length as never as number) > 0 ? (
     <>
-      <Container maxWidth={false} className="mt-8 px-16 md:px-16 lg:px-28">
+      <Container maxWidth={false} className="mt-8 px-10 md:px-10 lg:px-20">
         <div className="flex justify-between">
           <Typography
-            className="mb-8 flex md:text-3xl lg:text-4xl"
+            className="mb-1 flex md:text-3xl lg:text-4xl"
             noWrap
             sx={{
               fontSize: "20px",
@@ -192,7 +192,7 @@ export default function ProductTable() {
           <AddProductButton addProduct={addProduct}></AddProductButton>
         </div>
 
-        <Grid container spacing={5}>
+        <Grid container spacing={0}>
           <Grid xs={12}>
             <TableContainer className="mt-8">
               <Table sx={{ minWidth: 1400 }}>

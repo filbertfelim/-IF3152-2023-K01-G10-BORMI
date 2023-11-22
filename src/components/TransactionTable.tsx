@@ -93,9 +93,9 @@ export default function TransactionTable() {
                 if (newValue !== null) {
                   setValueStart((newValue as Moment).endOf("day"));
                 } else {
-                  setValueStart(null);
-                  setCursor(1);
+                  setValueStart(null);  
                 }
+                setCursor(1);
               }}
               maxDate={valueEnd}
             />
@@ -128,8 +128,8 @@ export default function TransactionTable() {
                   setValueEnd((newValue as Moment).endOf("day"));
                 } else {
                   setValueEnd(null);
-                  setCursor(1);
                 }
+                setCursor(1);
               }}
               minDate={valueStart}
             />
