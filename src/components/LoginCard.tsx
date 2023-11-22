@@ -1,11 +1,12 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import IconButton from '@mui/material/IconButton';
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import PersonIcon from "@mui/icons-material/Person";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import TextField from "@mui/material/TextField";
 import { type InferGetServerSidePropsType } from "next";
 import { type getServerSideProps } from "../pages/login";
@@ -15,6 +16,12 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import FormControl from '@mui/material/FormControl';
+import Slide from '@mui/material/Slide';
 
 interface FormValues {
   username: string;
@@ -94,6 +101,12 @@ const LoginCard = ({
     setOpenLoginFailed(false);
   };
 
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#FFF8EE]">
       <Typography
@@ -127,20 +140,15 @@ const LoginCard = ({
         >
           Log In
         </Typography>
-        <Card sx={{ maxWidth: { xs: 380, sm: 400, md: 500, xl: 500 } }}>
-          <CardContent className="mx-12 flex flex-col items-center justify-center">
-            <Avatar
-              className="mb-12 mt-8"
-              sx={{ bgcolor: "black", color: "#FFF8EE" }}
-            >
-              <PersonIcon />
-            </Avatar>
+        <Card sx={{ maxWidth: { xs: 380, sm: 400, md: 500, xl: 500 }, borderRadius: 8 }}>
+          <CardContent className="mx-12 flex-col items-center justify-center">
+            <AccountCircleIcon className="w-full mb-12 mt-8" sx={{ width: 60, height: 60 }}/>
             <Typography
-              className="mx-8 my-8 text-center"
+              className="mx-8 mb-10 text-center"
               sx={{
-                display: "flex",
                 fontFamily: "Nunito",
                 fontWeight: 800,
+                fontSize: "18px",
                 color: "inherit",
               }}
             >
@@ -148,11 +156,23 @@ const LoginCard = ({
             </Typography>
             <form onSubmit={(e) => void handleSubmit(login)(e)}>
               <input name="csrfToken" type="hidden" defaultValue={csrfToken!} />
+              <Typography
+                noWrap
+                sx={{
+                  fontSize: "15px",
+                  fontFamily: "Nunito",
+                  fontWeight: 800,
+                  color: "black",
+                  pb: "5px",
+                  pl: "5px",
+                }}
+              >
+                Username
+              </Typography>
               <TextField
                 required
                 type="username"
-                placeholder="Username"
-                label="Username"
+                placeholder="Enter your username"
                 {...register("username", {
                   required: "Username tidak boleh kosong",
                 })}
@@ -161,37 +181,67 @@ const LoginCard = ({
                   sx: {
                     borderRadius: 4,
                     fontFamily: "Nunito",
-                    fontWeight: 800,
+                    fontWeight: 500,
                     color: "inherit",
                   },
                 }}
               />
-              <TextField
-                required
-                type="password"
-                placeholder="Password"
-                label="Password"
-                className="mb-4 w-full"
-                {...register("password", {
-                  required: "Password tidak boleh kosong",
-                })}
-                InputProps={{
-                  sx: {
+              <Typography
+                noWrap
+                sx={{
+                  fontSize: "15px",
+                  fontFamily: "Nunito",
+                  fontWeight: 800,
+                  color: "black",
+                  pb: "5px",
+                  pl: "5px",
+                  pt: "12px",
+                }}
+              >
+                Password
+              </Typography>
+              <FormControl 
+                className="mb-4 w-full" 
+                variant="outlined"
+              >
+                <OutlinedInput
+                  required
+                  id="outlined-adornment-password"
+                  placeholder="Enter your password"
+                  type={showPassword ? 'text' : 'password'}
+                  {...register("password", {
+                    required: "Password tidak boleh kosong",
+                  })}
+                  sx={{
                     borderRadius: 4,
                     fontFamily: "Nunito",
-                    fontWeight: 800,
+                    fontWeight: 500,
                     color: "inherit",
-                  },
-                }}
-              />
+                  }}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                        className="pr-3"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
               <Button
                 type="submit"
-                className="my-8 w-full rounded-3xl border-2 bg-[#FFC887] px-0 py-3 hover:bg-[#897054] disabled:bg-[#c3c3c3]"
+                className="mt-8 mb-10 w-full rounded-3xl border-2 bg-[#FFC887] px-0 py-3 hover:bg-[#897054] disabled:bg-[#c3c3c3]"
               >
                 <Typography
                   noWrap
                   sx={{
-                    fontSize: "15px",
+                    textTransform: "none",
+                    fontSize: "18px",
                     fontFamily: "Nunito",
                     fontWeight: 800,
                     color: "black",
@@ -204,13 +254,17 @@ const LoginCard = ({
               <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 open={openLoginFailed}
-                autoHideDuration={1000}
+                autoHideDuration={1500}
                 onClose={handleCloseLoginFailed}
+                TransitionComponent={(props) => (
+                  <Slide {...props} direction="up" />
+                )}
               >
                 <Alert
                   onClose={handleCloseLoginFailed}
                   severity="error"
-                  sx={{ width: "100%" }}
+                  sx={{ width: "100%", backgroundColor: "#930000" }}
+                  variant="filled"
                 >
                   Username atau password salah
                 </Alert>
@@ -218,15 +272,19 @@ const LoginCard = ({
               <Snackbar
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 open={openLoginSuccess}
-                autoHideDuration={1000}
+                autoHideDuration={1500}
                 onClose={handleCloseLoginSuccess}
+                TransitionComponent={(props) => (
+                  <Slide {...props} direction="up" />
+                )}
               >
                 <Alert
                   onClose={handleCloseLoginSuccess}
                   severity="success"
-                  sx={{ width: "100%" }}
+                  sx={{ width: "100%", backgroundColor: "#004f00" }}
+                  variant="filled"
                 >
-                  Log in Berhasil
+                  Log in berhasil
                 </Alert>
               </Snackbar>
             </form>
