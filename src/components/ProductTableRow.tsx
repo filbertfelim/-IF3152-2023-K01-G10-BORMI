@@ -153,7 +153,7 @@ export default function ProductTableRow({
       <TableCell>
         <Typography
           noWrap
-          className="align-center ml-8 flex items-center justify-star"
+          className="align-center justify-star ml-8 flex items-center"
           sx={{
             fontSize: "15px",
             fontFamily: "Nunito",
@@ -281,20 +281,9 @@ export default function ProductTableRow({
               <UploadButton
                 className="uploadimage"
                 appearance={{
-                  button({ ready, isUploading }) {
-                    return {
-                      fontSize: "1rem",
-                      color: "black",
-                      ...(ready && { color: "black" }),
-                      ...(isUploading && { color: "black" }),
-                    };
-                  },
-                  container: {
-                    marginTop: "1rem",
-                  },
-                  allowedContent: {
-                    color: "#a1a1aa",
-                  },
+                  button:
+                    "ut-uploading:cursor-not-allowed rounded-r-none bg-[#FFC887] bg-none after:bg-[#c79960] text-black font-nunito font-bold",
+                  allowedContent: "text-black font-nunito font-bold",
                 }}
                 content={{ allowedContent: "Maksimal 1 MB" }}
                 endpoint="imageUploader"

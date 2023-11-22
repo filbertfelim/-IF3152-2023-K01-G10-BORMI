@@ -60,6 +60,7 @@ export default function ProductGrid({ id }: Props) {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value,
     );
+    setCursor(1);
   };
 
   return (
