@@ -66,7 +66,7 @@ export default function ProductGrid({ id }: Props) {
   return (
     <>
       <Grid container spacing={1}>
-        <Grid xs={12} md={6} className="mb-8">
+        <Grid sm={12} md={6} className="mb-8 ml-8 md:ml-0">
           <Typography
             className=" flex"
             noWrap
@@ -80,7 +80,11 @@ export default function ProductGrid({ id }: Props) {
             Daftar Produk
           </Typography>
         </Grid>
-        <Grid xs={12} md={6} className="justify-left mb-8 flex lg:justify-end">
+        <Grid
+          sm={12}
+          md={6}
+          className="justify-left mb-8 flex-row sm:flex lg:justify-end ml-8 md:ml-0"
+        >
           <TextField
             type="text"
             placeholder="Nama produk"
@@ -91,6 +95,8 @@ export default function ProductGrid({ id }: Props) {
                 fontWeight: 800,
                 color: "inherit",
                 minWidth: "150px",
+                mr: 2,
+                mb: 2,
               },
               startAdornment: (
                 <InputAdornment position="end" className="mr-2">
@@ -107,7 +113,6 @@ export default function ProductGrid({ id }: Props) {
               minWidth: "120px",
               maxWidth: "200px",
             }}
-            className="ml-4"
           >
             <InputLabel
               htmlFor="grouped-native-select"
@@ -159,9 +164,9 @@ export default function ProductGrid({ id }: Props) {
           {productData.data?.data.map((item) => (
             <Grid
               xs={12}
-              md={6}
-              lg={4}
-              xl={3}
+              sm={6}
+              md={4}
+              lg={3}
               className="mb-8 flex justify-center"
             >
               <ProductCard item={item} userId={id}></ProductCard>

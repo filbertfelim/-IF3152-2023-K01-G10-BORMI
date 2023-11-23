@@ -22,7 +22,7 @@ export default function productlist() {
         role={data?.user.role}
         username={userData.data?.username as string}
       ></Navbar>
-      <Container maxWidth={false} className="mt-10 px-16 lg:px-16">
+      <Container maxWidth={false} className="mt-10 px-4 md:px-16">
         <ProductGrid id={data?.user.id as number}></ProductGrid>
       </Container>
     </>

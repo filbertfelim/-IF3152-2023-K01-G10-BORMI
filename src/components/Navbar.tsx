@@ -219,7 +219,7 @@ function Navbar({ role, username }: Props) {
             </Typography>
           </Box>
           <Typography
-            variant="h5"
+            variant="body1"
             noWrap
             sx={{
               flexGrow: 1,

@@ -261,7 +261,7 @@ export default function UserTableRow({ item, editUser, deleteUser }: Props) {
                 </TextField>
               )}
             </DialogContent>
-            <DialogActions className="mx-12 my-4 flex justify-end space-x-4">
+            <DialogActions className="mx-12 my-4 flex justify-end space-x-2">
               <Button
                 onClick={() => {
                   handleCloseEditUser();

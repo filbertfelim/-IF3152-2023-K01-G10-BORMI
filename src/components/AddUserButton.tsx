@@ -188,7 +188,7 @@ export default function AddUserButton({ addUser }: Props) {
               </MenuItem>
             </TextField>
           </DialogContent>
-          <DialogActions className="mx-12 my-4 flex justify-end space-x-4">
+          <DialogActions className="mx-12 my-4 justify-end space-x-2">
             <Button
               onClick={() => {
                 handleCloseAddUser();
@@ -218,7 +218,11 @@ export default function AddUserButton({ addUser }: Props) {
               disabled={password === "" || username === ""}
               className="bg-[#FFC887] px-4 text-black hover:bg-[#c79960]"
               endIcon={
-                <AddBoxRoundedIcon fontSize="inherit" sx={{ color: "black" }} />
+                <AddBoxRoundedIcon
+                  fontSize="inherit"
+                  sx={{ color: "black" }}
+                  className="hidden sm:flex"
+                />
               }
             >
               <Typography
@@ -227,6 +231,7 @@ export default function AddUserButton({ addUser }: Props) {
                   fontFamily: "Nunito",
                   fontWeight: 800,
                   mt: 0.5,
+                  ml: 0.2,
                 }}
               >
                 Tambah

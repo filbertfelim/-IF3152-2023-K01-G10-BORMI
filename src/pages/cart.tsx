@@ -36,7 +36,7 @@ export default function cart() {
           <Grid xs={12} sm={12} md={12} xl={9}>
             <CartTable id={2}></CartTable>
           </Grid>
-          <Grid xs={6} sm={6} md={6} xl={3}>
+          <Grid xs={12} sm={6} md={6} xl={3}>
             <CheckoutTable id={2}></CheckoutTable>
           </Grid>
         </Grid>

@@ -141,7 +141,7 @@ const LoginCard = ({
           Log In
         </Typography>
         <Card sx={{ maxWidth: { xs: 380, sm: 400, md: 500, xl: 500 }, borderRadius: 8 }}>
-          <CardContent className="mx-12 flex-col items-center justify-center">
+          <CardContent className="mx-4 sm:mx-12 flex-col items-center justify-center">
             <AccountCircleIcon className="w-full mb-12 mt-8" sx={{ width: 60, height: 60 }}/>
             <Typography
               className="mx-8 mb-10 text-center"
