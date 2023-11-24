@@ -163,7 +163,7 @@ export default function UserTable() {
   return (
     <>
       <Container maxWidth={false} className="mt-8 px-8">
-        <div className="mb-8 flex justify-between">
+        <div className="mb-8 flex-row  sm:flex justify-between">
           <Typography
             className=" flex"
             noWrap

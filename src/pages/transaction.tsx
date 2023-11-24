@@ -23,7 +23,7 @@ export default function transaction() {
         role={data?.user.role}
         username={userData.data?.username as string}
       ></Navbar>
-      <Container maxWidth={false} className="mt-10 px-16 lg:px-16">
+      <Container maxWidth={false} className="mt-10 px-8 md:px-16">
         <TransactionTable></TransactionTable>
       </Container>
     </>

@@ -353,7 +353,7 @@ export default function AddProductButton({ addProduct }: Props) {
               }}
             />
           </DialogContent>
-          <DialogActions className="mx-12 my-4 flex justify-end space-x-4">
+          <DialogActions className="mx-12 my-4 flex justify-end space-x-2">
             <Button
               onClick={() => {
                 handleCloseAddProduct();
@@ -387,7 +387,11 @@ export default function AddProductButton({ addProduct }: Props) {
               disabled={getValues("image") === ""}
               className="bg-[#FFC887] px-4 text-black hover:bg-[#c79960]"
               endIcon={
-                <AddBoxRoundedIcon fontSize="inherit" sx={{ color: "black" }} />
+                <AddBoxRoundedIcon
+                  fontSize="inherit"
+                  sx={{ color: "black" }}
+                  className="hidden sm:flex"
+                />
               }
             >
               <Typography
@@ -396,6 +400,7 @@ export default function AddProductButton({ addProduct }: Props) {
                   fontFamily: "Nunito",
                   fontWeight: 800,
                   mt: 0.5,
+                  ml: 0.2,
                 }}
               >
                 Tambah

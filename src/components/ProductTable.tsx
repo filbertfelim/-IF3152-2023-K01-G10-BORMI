@@ -176,12 +176,11 @@ export default function ProductTable() {
   return (productData.data?.data.length as never as number) > 0 ? (
     <>
       <Container maxWidth={false} className="mt-8 px-10 md:px-10 lg:px-20">
-        <div className="flex justify-between">
+        <div className="flex-row sm:flex justify-between">
           <Typography
-            className="mb-1 flex md:text-3xl lg:text-4xl"
-            noWrap
+            className="mb-2 flex"
             sx={{
-              fontSize: "20px",
+              fontSize: "30px",
               fontFamily: "Nunito",
               fontWeight: 700,
               color: "inherit",
@@ -191,10 +190,9 @@ export default function ProductTable() {
           </Typography>
           <AddProductButton addProduct={addProduct}></AddProductButton>
         </div>
-
         <Grid container spacing={0}>
           <Grid xs={12}>
-            <TableContainer className="mt-8">
+            <TableContainer className="mt-4">
               <Table sx={{ minWidth: 1400 }}>
                 <TableHead className="text-[#AB8A67]">
                   <TableRow>
