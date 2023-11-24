@@ -87,7 +87,7 @@ export default function AddUserButton({ addUser }: Props) {
             mt: 0.5,
           }}
         >
-          Tambah karyawan
+          Tambah Karyawan
         </Typography>
       </Button>
       <Dialog
@@ -117,7 +117,7 @@ export default function AddUserButton({ addUser }: Props) {
                 mt: 0.5,
               }}
             >
-              Edit Produk
+              Tambah Karyawan
             </Typography>
           </DialogTitle>
           <DialogContent className="mx-8 flex flex-col">
