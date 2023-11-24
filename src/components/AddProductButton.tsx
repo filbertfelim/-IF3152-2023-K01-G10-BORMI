@@ -166,7 +166,7 @@ export default function AddProductButton({ addProduct }: Props) {
                 mt: 0.5,
               }}
             >
-              Edit Karyawan
+              Tambah Produk
             </Typography>
           </DialogTitle>
           <DialogContent className="mx-8 flex flex-col">
