@@ -80,7 +80,7 @@ password : password
     <td><center>Melakukan log in</td>
     <td rowspan="4"><center>18221073</center></td>
     <td rowspan="4"><center>Jessica</td>
-    <td><center>Login<br><img src="https://i.ibb.co/CwPfp0N/Screenshot-2023-11-25-at-20-11-33.png" alt="Image" width="1920" height="1080"></td>
+    <td><center>Login<br><img src="https://i.ibb.co/CwPfp0N/Screenshot-2023-11-25-at-20-11-33.png" alt="Image" width="700" height="394"></td>
   </tr>
   <tr>
     <td><center><img src="https://media.istockphoto.com/id/496603666/vector/flat-icon-check.jpg?s=612x612&w=0&k=20&c=BMYf-7moOtevP8t46IjHHbxJ4x4I0ZoFReIp9ApXBqU=" alt="Image" width="100" height="100"></td>
