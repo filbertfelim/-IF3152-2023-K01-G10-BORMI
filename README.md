@@ -1,4 +1,3 @@
-
 # BORMI
 **BORMI** adalah sebuah *website* yang digunakan untuk **mengelola keberjalanan operasional** toko retail BORMI. *Website* BORMI akan digunakan oleh **3 jenis pengguna** yaitu : 
 - **Kasir**
@@ -117,15 +116,15 @@ password : password
   <tr>
     <td><center><img src="https://media.istockphoto.com/id/496603666/vector/flat-icon-check.jpg?s=612x612&w=0&k=20&c=BMYf-7moOtevP8t46IjHHbxJ4x4I0ZoFReIp9ApXBqU=" alt="Image" width="100" height="100"></td>
     <td><center>Mengelola data pegawai</td>
-    <td><center>18221137</td>
-    <td><center>Felisa Aidadora Darmawan</td>
+    <td><center>18221137 18221097</td>
+    <td><center>Felisa Aidadora Darmawan Filbert Felim</td>
     <td><center>Tabel data pegawai<br><img src="https://i.ibb.co/2ZNrBv2/Screenshot-2023-11-24-at-23-43-23.png" alt="Image" width="700" height="369"><br><br>Mengubah data karyawan<br><img src="https://i.ibb.co/ngmRpfM/Screenshot-2023-11-24-at-23-45-59.png" alt="Image" width="700" height="369"><br><br>Menambah data karyawan baru<br><img src="https://i.ibb.co/PMTmXtP/Screenshot-2023-11-25-at-00-21-00.png" alt="Image" width="700" height="369"><br><br>Menghapus karyawan<br><img src="https://i.ibb.co/hs3XJPT/Screenshot-2023-11-24-at-23-48-04.png" alt="Image" width="700" height="369"></td>
   </tr>
   <tr>
     <td><center><img src="https://media.istockphoto.com/id/496603666/vector/flat-icon-check.jpg?s=612x612&w=0&k=20&c=BMYf-7moOtevP8t46IjHHbxJ4x4I0ZoFReIp9ApXBqU=" alt="Image" width="100" height="100"></td>
     <td><center>Mengelola data produk</td>
-    <td rowspan="4"><center>18221153</td>
-    <td rowspan="4"><center>Victoria Angelique</td>
+    <td rowspan="4"><center>18221153 18221097</td>
+    <td rowspan="4"><center>Victoria Angelique Filbert Felim</td>
     <td><center>Tabel data produk<br><img src="https://i.ibb.co/hC8n6Hb/Screenshot-2023-11-25-at-00-02-46.png" alt="Image" width="700" height="341"><br><br>Mengubah data produk<br><img src="https://i.ibb.co/C7LHD13/Screenshot-2023-11-25-at-00-03-54.png" alt="Image" width="700" height="342"><br><br>Menambah data produk baru<br><img src="https://i.ibb.co/SJccQ3m/Screenshot-2023-11-25-at-00-21-44.png" alt="Image" width="700" height="369"><br><br>Menghapus produk<br><img src="https://i.ibb.co/LQqZTwC/Screenshot-2023-11-25-at-00-04-38.png" alt="Image" width="700" height="342"></td>
   </tr>
   <tr>
