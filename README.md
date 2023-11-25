@@ -117,7 +117,7 @@ password : password
     <td><center><img src="https://media.istockphoto.com/id/496603666/vector/flat-icon-check.jpg?s=612x612&w=0&k=20&c=BMYf-7moOtevP8t46IjHHbxJ4x4I0ZoFReIp9ApXBqU=" alt="Image" width="100" height="100"></td>
     <td><center>Mengelola data pegawai</td>
     <td><center>18221137 18221097</td>
-    <td><center>Felisa Aidadora Darmawan Filbert Felim</td>
+    <td><center>Felisa Aidadora D Filbert Felim</td>
     <td><center>Tabel data pegawai<br><img src="https://i.ibb.co/2ZNrBv2/Screenshot-2023-11-24-at-23-43-23.png" alt="Image" width="700" height="369"><br><br>Mengubah data karyawan<br><img src="https://i.ibb.co/ngmRpfM/Screenshot-2023-11-24-at-23-45-59.png" alt="Image" width="700" height="369"><br><br>Menambah data karyawan baru<br><img src="https://i.ibb.co/PMTmXtP/Screenshot-2023-11-25-at-00-21-00.png" alt="Image" width="700" height="369"><br><br>Menghapus karyawan<br><img src="https://i.ibb.co/hs3XJPT/Screenshot-2023-11-24-at-23-48-04.png" alt="Image" width="700" height="369"></td>
   </tr>
   <tr>
