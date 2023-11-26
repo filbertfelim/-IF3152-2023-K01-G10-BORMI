@@ -34,10 +34,10 @@ export default function cart() {
         </Typography>
         <Grid container spacing={5}>
           <Grid xs={12} sm={12} md={12} xl={9}>
-            <CartTable id={2}></CartTable>
+            <CartTable id={data?.user.id as number}></CartTable>
           </Grid>
           <Grid xs={12} sm={6} md={6} xl={3}>
-            <CheckoutTable id={2}></CheckoutTable>
+            <CheckoutTable id={data?.user.id as number}></CheckoutTable>
           </Grid>
         </Grid>
       </Container>
