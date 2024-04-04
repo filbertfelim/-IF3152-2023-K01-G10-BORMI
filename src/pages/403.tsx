@@ -7,7 +7,7 @@ export default function Forbidden() {
   return (
     <>
       <Head>
-        <title>FORBIDDEN - BORMI</title>
+        <title>FORBIDDEN- BORMI</title>
       </Head>
       <Box
         sx={{
